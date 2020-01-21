@@ -32,7 +32,7 @@ def obj_dict(obj):
 # Get URL
 def getResponse():
     global RESPONSE
-    time.sleep(5)
+    time.sleep(2)
     return json.dumps(RESPONSE, default=obj_dict)
 
 @app.route('/mainEcoScore')

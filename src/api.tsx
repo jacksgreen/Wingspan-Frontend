@@ -1,13 +1,7 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
-export function getResponse() {
-    fetch('127.0.0.1:5000/')
-        .then(res => res.json())
-        .then((data) => {
-            return data
-        })
-        .catch(err => {
-            console.error
-        })
-
+export async function getResponse() {
+    const getter = await axios.get('http://127.0.0.1:5000/')
+    return getter.data
 }
