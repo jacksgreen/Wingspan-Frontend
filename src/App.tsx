@@ -10,7 +10,6 @@ const App: React.FC = () => {
       <Navbar></Navbar>
       <div className="setMarginTop">
         <Body></Body>
-        <Button color="danger">Start</Button>
       </div>
     </div>
   );
