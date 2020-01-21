@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 import json
+import time
 import os
 from flask_cors import CORS
 
@@ -31,14 +32,13 @@ def obj_dict(obj):
 # Get URL
 def getResponse():
     global RESPONSE
+    time.sleep(5)
     return json.dumps(RESPONSE, default=obj_dict)
-
 
 @app.route('/mainEcoScore')
 def getMainEcoScore():
     global RESPONSE
     return RESPONSE["mainProduct"]["ecoScore"]
-
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))

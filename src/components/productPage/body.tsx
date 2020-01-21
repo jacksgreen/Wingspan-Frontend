@@ -3,8 +3,13 @@ import {
     Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button, Table
 } from 'reactstrap';
+import { getResponse } from '../../api'
 
 const Body = () => {
+    const  resp = getResponse()
+    console.log('resp')
+    console.log(resp)
+
     return (
         <div>
             <Card>
