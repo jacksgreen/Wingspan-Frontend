@@ -21,7 +21,7 @@ interface Response {
 }
 
 const Body = () => {
-    const [response, setResponse] = useState<Response>()
+    const [response, setResponse] = useState<Response | undefined>()
     const [loaded, setLoaded] = useState(false)
     useEffect(() => {
         getResponse().then(resp => {
