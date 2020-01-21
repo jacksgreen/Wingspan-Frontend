@@ -19,6 +19,7 @@ const NavBar = () => {
     return (
         <div className="navbar-container">
             <Navbar color="success" expand="md" scrolling dark fixed="top">
+                <NavbarBrand className="tree"></NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto" navbar>

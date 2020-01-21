@@ -2,3 +2,11 @@
     width:100vw;
     justify-content: space-evenly;
 }
+
+.tree{
+    background-image: url('../../assets/tree_icon.png');
+    width:40px;
+    height:40px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
