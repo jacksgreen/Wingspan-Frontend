@@ -21,13 +21,13 @@ const NavBar: React.FC<Props> = (props) => {
     const toggle = () => setIsOpen(!isOpen);
     const { changePage } = props;
     return (
-        <div className="navbar-container">
+        <div>
             <Navbar color="success" expand="md" scrolling dark fixed="top">
                 <div className="wingspan-brand-container">
                     <NavbarBrand className="tree"></NavbarBrand>
                     <NavbarBrand className="wingspan-brand-name-mobile">WingSpan</NavbarBrand>
                     <div className="search-container">
-                        <NavLink href="/" className="search-link">
+                        <NavLink href="/" className="search-link" >
                             <SearchIcon className="navbar-search" fontSize="inherit" color="inherit" />
                         </NavLink>
                     </div>
@@ -36,10 +36,10 @@ const NavBar: React.FC<Props> = (props) => {
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto" navbar>
                         <NavItem>
-                            <NavLink href="/about/" className="navbar-link">about</NavLink>
+                            <NavLink href="/about/" className="navbar-link" active={window.location.href.includes('about')}>about</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href="/research/" className="navbar-link">research</NavLink>
+                            <NavLink href="/research/" className="navbar-link" active={window.location.href.includes('research')}>research</NavLink>
                         </NavItem>
                     </Nav>
                 </Collapse>
