@@ -10,11 +10,12 @@ import {
   Table,
   Form,
   FormGroup,
-  Label,
+  Tooltip,
   Input
 } from 'reactstrap';
 import { getResponse, getData } from '../../api';
 import './body.css';
+import InfoIcon from '@material-ui/icons/Info';
 
 interface Product {
   price: string;
@@ -40,6 +41,9 @@ interface Props {
 }
 
 const Body: React.FC<Props> = props => {
+  const [tooltipOpen, setTooltipOpen] = useState(false);
+  const toggle = () => setTooltipOpen(!tooltipOpen);
+  const wingspanFormulaDescription="Enter Formula here"
   const [response, setResponse] = useState<Response | undefined>({
     msg: 'Not Loaded'
   });
@@ -58,11 +62,11 @@ const Body: React.FC<Props> = props => {
   }, []);
 
   const [search, setSearch] = useState('');
-  const handleSearch = function(event: React.ChangeEvent<HTMLInputElement>) {
+  const handleSearch = function (event: React.ChangeEvent<HTMLInputElement>) {
     setSearch(event.target.value);
   };
 
-  const handleSubmit = async function() {
+  const handleSubmit = async function () {
     const dataU = await getData(search);
     setResponse(dataU);
   };
@@ -92,8 +96,11 @@ const Body: React.FC<Props> = props => {
                     <b>Type: </b>
                     {response['mainProduct']['type']}
                   </CardText>
-                  <CardText>
-                    <b>WingSpan Score:</b> {response['mainProduct']['ecoscore']}
+                  <CardText >
+                    <span id="Tooltip"><b>WingSpan Score<sup ><InfoIcon className="superscript"/></sup>:</b> {response['mainProduct']['ecoscore']}</span>
+                    <Tooltip placement="top" isOpen={tooltipOpen} target="Tooltip" toggle={toggle}>
+                    {wingspanFormulaDescription}
+                    </Tooltip>
                   </CardText>
                   <CardText>
                     <b>Price: </b> ${response['mainProduct']['price']}
@@ -159,8 +166,11 @@ const Body: React.FC<Props> = props => {
                   ))}
                 </tr>
                 <tr>
-                  <th className='rowTable'>
-                    <b>WingSpan Score: </b>
+                  <th className='rowTable' >
+                  <span id="Tooltip2"> <b >WingSpan Score<sup ><InfoIcon className="superscript"/></sup>: </b></span>
+                    <Tooltip placement="top" isOpen={tooltipOpen} target="Tooltip2" toggle={toggle}>
+                    {wingspanFormulaDescription}
+                    </Tooltip>
                   </th>
                   {[
                     response['mainProduct']['ecoscore'],
