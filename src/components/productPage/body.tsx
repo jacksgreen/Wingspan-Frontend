@@ -32,10 +32,10 @@ interface Response {
   thirdSuggestion?: Product;
 }
 interface Props {
-  showSearchPage: boolean
+  showSearchPage: boolean;
 }
 
-const Body: React.FC<Props> = (props) => {
+const Body: React.FC<Props> = props => {
   const [response, setResponse] = useState<Response | undefined>({
     msg: 'Not Loaded'
   });
@@ -46,20 +46,20 @@ const Body: React.FC<Props> = (props) => {
       setResponse(resp);
       setLoaded(true);
       const { showSearchPage } = props;
-      if(showSearchPage) {
-        let tempResponse = {...response}
-        tempResponse['msg'] = 'No URL'
-        setResponse(tempResponse)
+      if (showSearchPage) {
+        let tempResponse = { ...response };
+        tempResponse['msg'] = 'No URL';
+        setResponse(tempResponse);
       }
     });
   }, []);
 
   const [search, setSearch] = useState('');
-  const handleSearch = function (event: React.ChangeEvent<HTMLInputElement>) {
+  const handleSearch = function(event: React.ChangeEvent<HTMLInputElement>) {
     setSearch(event.target.value);
   };
 
-  const handleSubmit = async function () {
+  const handleSubmit = async function() {
     const dataU = await getData(search);
     setResponse(dataU);
     console.log(dataU);
@@ -180,7 +180,7 @@ const Body: React.FC<Props> = (props) => {
       {!loaded && <div>loading...</div>}
       {response['msg'] === 'No URL' && loaded && (
         <div>
-          <Form>
+          <Form className='search-form-wrapper'>
             <FormGroup>
               <Input
                 required
@@ -191,7 +191,11 @@ const Body: React.FC<Props> = (props) => {
                 onChange={event => handleSearch(event)}
               ></Input>
             </FormGroup>
-            <Button type='button' onClick={() => handleSubmit()}>
+            <Button
+              type='button'
+              className='btn-search'
+              onClick={() => handleSubmit()}
+            >
               Search
             </Button>
           </Form>
