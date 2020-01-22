@@ -52,3 +52,20 @@ th:focus::after {
     0 6.7px 50.5px -60px rgba(0, 0, 0, 0.417),
     0 30px 226px -60px rgba(0, 0, 0, 0.7);
 }
+
+.app-container {
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-search {
+  background-color: #606e60;
+}
