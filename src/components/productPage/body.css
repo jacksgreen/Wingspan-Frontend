@@ -90,6 +90,7 @@ th:focus::after {
 .outer-product-wrapper {
   background-color: #ebffeb;
   z-index: 0;
+  width: 100vw;
 }
 
 .card-body {

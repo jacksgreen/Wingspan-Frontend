@@ -74,7 +74,9 @@ const Body: React.FC<Props> = props => {
             <Card className='align-items-center p-1 w-50 m-2 main-product-wrapper'>
               <CardBody>
                 <CardTitle>
-                  <h3>{response['mainProduct']['title']}</h3>
+                  <h3>
+                    <b>{response['mainProduct']['title']}</b>
+                  </h3>
                 </CardTitle>
                 <CardImg
                   top
