@@ -30,6 +30,15 @@ const Widget: React.FC = () => {
                 </label>
                 <Button onClick={calculate} color="secondary">Calculate</Button>
             </div>
+            <div className="results-container">
+                <div className="box">
+                    <div className="box-img"></div>
+                    <div className="box-data">
+                        <div>acres of U.S. forests in one year</div>
+                        <div className="box-result">100</div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
