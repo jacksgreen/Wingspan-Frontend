@@ -37,7 +37,7 @@ const NavBar: React.FC<Props> = (props) => {
                             <NavLink href="/about/" className="text-white">about</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href="/research/" className="text-white">Research</NavLink>
+                            <NavLink href="/research/" className="text-white">research</NavLink>
                         </NavItem>
                     </Nav>
                 </Collapse>
