@@ -70,16 +70,18 @@ th:focus::after {
   background-color: #606e60;
 }
 
-.backgroundImg{
-  background-image: url('../../assets/warehouse.jpg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  display:flex;
+.backgroundImg {
+  width: 100vw;
+  height: calc(100vh - 56px);
+  display: flex;
   justify-content: center;
-  width:90vw;
-  height:90vh;
+  align-items: center;
+  background-image: url(../../img/background-trees.jpeg);
+  background-repeat: no-repeat;
+  /* background-position: center; */
+  background-size: cover;
 }
+
 #myVideo {
   position: fixed;
   right: 0;

@@ -55,11 +55,11 @@ const Body: React.FC<Props> = props => {
   }, []);
 
   const [search, setSearch] = useState('');
-  const handleSearch = function (event: React.ChangeEvent<HTMLInputElement>) {
+  const handleSearch = function(event: React.ChangeEvent<HTMLInputElement>) {
     setSearch(event.target.value);
   };
 
-  const handleSubmit = async function () {
+  const handleSubmit = async function() {
     const dataU = await getData(search);
     setResponse(dataU);
     console.log(dataU);
@@ -69,8 +69,8 @@ const Body: React.FC<Props> = props => {
     <div>
       {response['msg'] === 'Success' && loaded && (
         <div className='align-items-center bodyContainer'>
-          <video autoPlay muted loop id="myVideo">
-            <source src="/forest.mp4" type="video/mp4" />
+          <video autoPlay muted loop id='myVideo'>
+            <source src='/forest.mp4' type='video/mp4' />
           </video>
           <div className='d-flex justify-content-center'>
             <Card className='align-items-center p-1 w-50 m-2 main-product-wrapper'>
@@ -182,7 +182,7 @@ const Body: React.FC<Props> = props => {
       )}
       {!loaded && <div>loading...</div>}
       {response['msg'] === 'No URL' && loaded && (
-        <div className="backgroundImg">
+        <div className='backgroundImg'>
           <Form className='search-form-wrapper'>
             <FormGroup>
               <Input
