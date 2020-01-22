@@ -27,7 +27,9 @@ const NavBar: React.FC<Props> = (props) => {
                     <NavbarBrand className="tree"></NavbarBrand>
                     <NavbarBrand className="text-white wingspan-brand-name-mobile">WingSpan</NavbarBrand>
                     <div className="search-container">
-                        <SearchIcon className="navbar-search" fontSize="inherit" color="inherit" />
+                        <NavLink href="/" className="search-link">
+                            <SearchIcon className="navbar-search" fontSize="inherit" color="inherit" />
+                        </NavLink>
                     </div>
                 </div>
                 <NavbarToggler onClick={toggle} />

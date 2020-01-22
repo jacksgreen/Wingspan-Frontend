@@ -7,13 +7,16 @@ const Widget: React.FC = () => {
     const inputRef = useRef<HTMLInputElement>()
     const calculate = () => {
         const unit = selectRef.current.value;
-        const amount = inputRef.current.value;
+        const amount = parseInt(inputRef.current.value);
+        if (isNaN(amount) || unit == '') {
+            return;
+        }
         window.open(`https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator?unit=${unit}&amount=${amount}`)
     }
     return (
         <div className="page-container">
             <div className="widget-container">
-                <h3>Gas Equivalencies Calculator</h3>
+                <h3 className="widget-title">Gas Equivalencies Calculator</h3>
                 <select ref={selectRef} className="GHG_type">
                     <option value="">- Select a Unit -</option>
                     <option value="gasoline">Gallons of Gasoline</option>
