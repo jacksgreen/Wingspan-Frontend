@@ -81,3 +81,8 @@ th:focus::after {
   /* background-position: center; */
   background-size: cover;
 }
+
+.widget{
+  background-color: white;
+  target: '_blank'
+}

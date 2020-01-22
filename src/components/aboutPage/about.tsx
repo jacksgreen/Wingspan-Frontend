@@ -18,6 +18,7 @@ const AboutPage: React.FC = () => {
               <h1>WingSpan</h1>
             </CardTitle>
             <CardText>Jack, write some beautiful poetry</CardText>
+            <CardText>Jack, LOOOOVESSS ALEX</CardText>
           </CardBody>
         </Card>
       </div>
