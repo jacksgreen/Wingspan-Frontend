@@ -11,7 +11,8 @@ import {
   Form,
   FormGroup,
   Tooltip,
-  Input
+  Input,
+  Spinner,
 } from 'reactstrap';
 import { getResponse, getData } from '../../api';
 import './body.css';
@@ -43,7 +44,7 @@ interface Props {
 const Body: React.FC<Props> = props => {
   const [tooltipOpen, setTooltipOpen] = useState(false);
   const toggle = () => setTooltipOpen(!tooltipOpen);
-  const wingspanFormulaDescription="Enter Formula here"
+  const wingspanFormulaDescription = "Enter Formula here"
   const [response, setResponse] = useState<Response | undefined>({
     msg: 'Not Loaded'
   });
@@ -97,9 +98,9 @@ const Body: React.FC<Props> = props => {
                     {response['mainProduct']['type']}
                   </CardText>
                   <CardText >
-                    <span id="Tooltip"><b>WingSpan Score<sup ><InfoIcon className="superscript"/></sup>:</b> {response['mainProduct']['ecoscore']}</span>
+                    <span id="Tooltip"><b>WingSpan Score<sup ><InfoIcon className="superscript" /></sup>:</b> {response['mainProduct']['ecoscore']}</span>
                     <Tooltip placement="top" isOpen={tooltipOpen} target="Tooltip" toggle={toggle}>
-                    {wingspanFormulaDescription}
+                      {wingspanFormulaDescription}
                     </Tooltip>
                   </CardText>
                   <CardText>
@@ -167,9 +168,9 @@ const Body: React.FC<Props> = props => {
                 </tr>
                 <tr>
                   <th className='rowTable' >
-                  <span id="Tooltip2"> <b >WingSpan Score<sup ><InfoIcon className="superscript"/></sup>: </b></span>
+                    <span id="Tooltip2"> <b >WingSpan Score<sup ><InfoIcon className="superscript" /></sup>: </b></span>
                     <Tooltip placement="top" isOpen={tooltipOpen} target="Tooltip2" toggle={toggle}>
-                    {wingspanFormulaDescription}
+                      {wingspanFormulaDescription}
                     </Tooltip>
                   </th>
                   {[
@@ -249,7 +250,7 @@ const Body: React.FC<Props> = props => {
           </div>
         </div>
       )}
-      {!loaded && <div>loading...</div>}
+      {!loaded && <div><Spinner type="grow" color="secondary" /><Spinner type="grow" color="secondary" /><Spinner type="grow" color="secondary" /></div>}
       {response['msg'] === 'No URL' && loaded && (
         <div className='backgroundImg'>
           <Form className='search-form-wrapper'>
