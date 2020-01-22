@@ -69,3 +69,15 @@ th:focus::after {
 .btn-search {
   background-color: #606e60;
 }
+
+.backgroundImg {
+  width: 100vw;
+  height: calc(100vh - 56px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../../img/background-trees.jpeg);
+  background-repeat: no-repeat;
+  /* background-position: center; */
+  background-size: cover;
+}

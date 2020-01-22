@@ -179,7 +179,7 @@ const Body: React.FC<Props> = props => {
       )}
       {!loaded && <div>loading...</div>}
       {response['msg'] === 'No URL' && loaded && (
-        <div>
+        <div className='backgroundImg'>
           <Form className='search-form-wrapper'>
             <FormGroup>
               <Input

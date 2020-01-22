@@ -1,14 +1,14 @@
 .navbar-container {
-  height: 60px;
+  height: 56px;
 }
 .search-link {
-    padding: 0;
-    color: white;
-    display: flex;
+  padding: 0;
+  color: white;
+  display: flex;
 }
 .search-link:hover {
-    opacity: 0.8;
-    color: white;
+  opacity: 0.8;
+  color: white;
 }
 .bg-success {
   background: #606e60 !important;
