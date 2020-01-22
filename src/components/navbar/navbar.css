@@ -1,6 +1,5 @@
 .navbar-container{
-    width:100vw;
-    justify-content: space-evenly;
+    height: 60px;
 }
 .bg-success {
     background: #4267b2 !important;
