@@ -3,8 +3,6 @@ import './style.css'
 
 const AboutPage: React.FC = () => {
     const [video, setVideo] = useState()
-
-
     const videoRef = useRef()
 
     return (
