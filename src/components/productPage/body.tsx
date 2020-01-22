@@ -61,7 +61,7 @@ const Body = () => {
       {response['msg'] === 'Success' && loaded && (
         <div className='align-items-center'>
           <div className='d-flex justify-content-center'>
-            <Card className='align-items-center p-1 w-50 m-2'>
+            <Card className='align-items-center p-1 w-50 m-2 main-product-wrapper'>
               <CardImg
                 top
                 className='mainCardImg'
