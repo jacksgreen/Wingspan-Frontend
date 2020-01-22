@@ -1,26 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import {
-    Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button, Table
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+  CardTitle,
+  CardSubtitle,
+  Button,
+  Table
 } from 'reactstrap';
-import { getResponse } from '../../api'
-import './body.css'
-
+import { getResponse } from '../../api';
+import './body.css';
 
 interface Product {
-    price: string,
-    titleName: string,
-    subTitle: string,
-    ecoScore: string,
-    photoUrl: string,
-    details: string,
+  price: string;
+  titleName: string;
+  subTitle: string;
+  ecoScore: string;
+  photoUrl: string;
+  details: string;
 }
 interface Response {
-    msg?: string,
-    mainProduct?: Product,
-    firstSuggestion?: Product,
-    secondSuggestion?: Product,
-    thirdSuggestion?: Product
+  msg?: string;
+  mainProduct?: Product;
+  firstSuggestion?: Product;
+  secondSuggestion?: Product;
+  thirdSuggestion?: Product;
 }
 
 const Body = () => {
@@ -101,4 +106,4 @@ const Body = () => {
     )
 }
 
-export default Body
+export default Body;
