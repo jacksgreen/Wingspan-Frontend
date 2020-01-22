@@ -52,3 +52,38 @@ th:focus::after {
     0 6.7px 50.5px -60px rgba(0, 0, 0, 0.417),
     0 30px 226px -60px rgba(0, 0, 0, 0.7);
 }
+
+.app-container {
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-search {
+  background-color: #606e60;
+}
+
+.backgroundImg{
+  background-image: url('../../assets/warehouse.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  display:flex;
+  justify-content: center;
+  width:90vw;
+  height:90vh;
+}
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}

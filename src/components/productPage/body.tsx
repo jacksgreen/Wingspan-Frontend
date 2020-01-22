@@ -32,10 +32,10 @@ interface Response {
   thirdSuggestion?: Product;
 }
 interface Props {
-  showSearchPage: boolean
+  showSearchPage: boolean;
 }
 
-const Body: React.FC<Props> = (props) => {
+const Body: React.FC<Props> = props => {
   const [response, setResponse] = useState<Response | undefined>({
     msg: 'Not Loaded'
   });
@@ -46,10 +46,10 @@ const Body: React.FC<Props> = (props) => {
       setResponse(resp);
       setLoaded(true);
       const { showSearchPage } = props;
-      if(showSearchPage) {
-        let tempResponse = {...response}
-        tempResponse['msg'] = 'No URL'
-        setResponse(tempResponse)
+      if (showSearchPage) {
+        let tempResponse = { ...response };
+        tempResponse['msg'] = 'No URL';
+        setResponse(tempResponse);
       }
     });
   }, []);
@@ -68,7 +68,10 @@ const Body: React.FC<Props> = (props) => {
   return (
     <div>
       {response['msg'] === 'Success' && loaded && (
-        <div className='align-items-center'>
+        <div className='align-items-center bodyContainer'>
+          <video autoPlay muted loop id="myVideo">
+            <source src="/forest.mp4" type="video/mp4" />
+          </video>
           <div className='d-flex justify-content-center'>
             <Card className='align-items-center p-1 w-50 m-2 main-product-wrapper'>
               <CardImg
@@ -180,7 +183,7 @@ const Body: React.FC<Props> = (props) => {
       {!loaded && <div>loading...</div>}
       {response['msg'] === 'No URL' && loaded && (
         <div className="backgroundImg">
-          <Form>
+          <Form className='search-form-wrapper'>
             <FormGroup>
               <Input
                 required
@@ -191,7 +194,11 @@ const Body: React.FC<Props> = (props) => {
                 onChange={event => handleSearch(event)}
               ></Input>
             </FormGroup>
-            <Button type='button' onClick={() => handleSubmit()}>
+            <Button
+              type='button'
+              className='btn-search'
+              onClick={() => handleSubmit()}
+            >
               Search
             </Button>
           </Form>
