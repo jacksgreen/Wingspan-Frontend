@@ -1,31 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Card,
-  CardImg,
-  CardText,
-  CardBody,
-  CardTitle,
-  CardSubtitle,
-  Button,
-  Table
+    Card,
+    CardImg,
+    CardText,
+    CardBody,
+    CardTitle,
+    CardSubtitle,
+    Button,
+    Table
 } from 'reactstrap';
 import { getResponse } from '../../api';
 import './body.css';
 
 interface Product {
-  price: string;
-  titleName: string;
-  subTitle: string;
-  ecoScore: string;
-  photoUrl: string;
-  details: string;
+    price: string;
+    titleName: string;
+    subTitle: string;
+    ecoScore: string;
+    photoUrl: string;
+    details: string;
 }
 interface Response {
-  msg?: string;
-  mainProduct?: Product;
-  firstSuggestion?: Product;
-  secondSuggestion?: Product;
-  thirdSuggestion?: Product;
+    msg?: string;
+    mainProduct?: Product;
+    firstSuggestion?: Product;
+    secondSuggestion?: Product;
+    thirdSuggestion?: Product;
 }
 
 const Body = () => {
@@ -60,40 +60,46 @@ const Body = () => {
                         <Table>
                             <thead>
                                 <tr>
+                                    <th></th>
                                     {[response['mainProduct']['photoUrl'], response['firstSuggestion']['photoUrl'],
                                     response['secondSuggestion']['photoUrl'], response['thirdSuggestion']['photoUrl']]
                                         .map((content, index) =>
-                                            <td key={index}>
+                                            <th key={index} className="colTable">
                                                 <div className="imgInTable"
                                                     style={{ backgroundImage: `url(${content})` }}>
                                                 </div>
-                                            </td>)}
-                                </tr>
-                                <tr>
-                                    {[response['mainProduct']['titleName'], response['firstSuggestion']['titleName'],
-                                    response['secondSuggestion']['titleName'], response['thirdSuggestion']['titleName']]
-                                        .map((content, index) =>
-                                            <th key={index}>{content}</th>)}
+                                            </th>)}
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
+                                    <th className="rowTable"><b>Title: </b></th>
+                                    {[response['mainProduct']['titleName'], response['firstSuggestion']['titleName'],
+                                    response['secondSuggestion']['titleName'], response['thirdSuggestion']['titleName']]
+                                        .map((content, index) =>
+                                            <td key={index}><h5>{content}</h5></td>)}
+                                </tr>
+                                <tr>
+                                    <th className="rowTable"><b>WingSpan Score: </b></th>
                                     {[response['mainProduct']['ecoScore'], response['firstSuggestion']['ecoScore'],
                                     response['secondSuggestion']['ecoScore'], response['thirdSuggestion']['ecoScore']]
                                         .map((content, index) =>
-                                            <td key={index}><b>WingSpan Score: </b>{content}</td>)}
+                                            <td key={index}>{content}</td>)}
                                 </tr>
                                 <tr>
+                                    <th className="rowTable"><b>Price: </b></th>
+
                                     {[response['mainProduct']['price'], response['firstSuggestion']['price'],
                                     response['secondSuggestion']['price'], response['thirdSuggestion']['price']]
                                         .map((content, index) =>
-                                            <td key={index}><b>Price: </b>{content}</td>)}
+                                            <td key={index}>{content}</td>)}
                                 </tr>
                                 <tr>
+                                    <th className="rowTable"><b>More Details: </b></th>
                                     {[response['mainProduct']['details'], response['firstSuggestion']['details'],
                                     response['secondSuggestion']['details'], response['thirdSuggestion']['details']]
                                         .map((content, index) =>
-                                            <td key={index}><b>More Details: </b>{content}</td>)}
+                                            <td key={index}>{content}</td>)}
                                 </tr>
                             </tbody>
                         </Table>
