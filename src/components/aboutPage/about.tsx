@@ -17,7 +17,14 @@ const AboutPage: React.FC = () => {
             <CardTitle>
               <h1>WingSpan</h1>
             </CardTitle>
-            <CardText>Jack, write some beautiful poetry</CardText>
+            <CardText>
+              Wingspan gives you the power to make more informed choices about
+              the products you buy. Choices that reflect your commitment to
+              doing better by the planet, people, and animals. We believe that
+              companies have a responsibility and should be transparent about
+              their impact. How do the products you purchase get to you, and how
+              do they compare to others?
+            </CardText>
           </CardBody>
         </Card>
       </div>
