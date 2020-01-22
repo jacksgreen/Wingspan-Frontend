@@ -6,6 +6,9 @@
   color: white;
   display: flex;
 }
+.navbar-link {
+  font-size: 20px;
+}
 .search-link:hover {
   opacity: 0.8;
   color: white;
