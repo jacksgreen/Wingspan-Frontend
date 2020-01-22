@@ -127,3 +127,7 @@ table td:nth-child(2) {
 table th:nth-child(2) {
   background-color: #ffc;
 }
+
+.superscript{
+  font-size:.8rem !important;
+}
