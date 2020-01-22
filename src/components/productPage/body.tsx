@@ -29,7 +29,9 @@ interface Response {
 }
 
 const Body = () => {
-  const [response, setResponse] = useState<Response | undefined>();
+  const [response, setResponse] = useState<Response | undefined>({
+    msg: 'Not Loaded'
+  });
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     getResponse().then(resp => {
@@ -41,7 +43,7 @@ const Body = () => {
 
   return (
     <div>
-      {response.msg === undefined && loaded && (
+      {response['msg'] === 'Success' && loaded && (
         <div className='align-items-center'>
           <Card className='align-items-center p-1 w-50'>
             <CardImg
@@ -104,7 +106,8 @@ const Body = () => {
           </div>
         </div>
       )}
-      {response.msg !== null && loaded && <div>jacks</div>}
+      {!loaded && <div>loading...</div>}
+      {response['msg'] === 'No URL' && loaded && <div>Jacks Page</div>}
     </div>
   );
 };
