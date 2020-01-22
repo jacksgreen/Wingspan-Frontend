@@ -4,6 +4,8 @@ import {
     CardTitle, CardSubtitle, Button, Table
 } from 'reactstrap';
 import { getResponse } from '../../api'
+import './body.css'
+
 
 interface Product {
     price: string,
@@ -35,22 +37,25 @@ const Body = () => {
     return (
         <div>
             {loaded &&
-                <div>
-                    <Card>
-                        <CardImg top width="100%" src="/assets/318x180.svg" alt="Card image cap" />
+                <div className="align-items-center">
+                    <Card className="align-items-center p-1 w-50">
+                        <CardImg top className="mainCardImg" src={response.mainProduct.photoUrl} alt={response.mainProduct.photoUrl} />
                         <CardBody>
-                            <CardTitle>{response['mainProduct']['ecoScore']}</CardTitle>
-                            <CardSubtitle>Card subtitle</CardSubtitle>
-                            <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                            <Button>Button</Button>
+                            <CardTitle><h3>{response['mainProduct']['titleName']}</h3></CardTitle>
+                            <CardSubtitle><h5>{response['mainProduct']['subTitle']}</h5></CardSubtitle>
+                            <CardText>WingSpan Score: {response['mainProduct']['ecoScore']}</CardText>
+                            <CardText>Price: {response['mainProduct']['price']}</CardText>
+                            <CardText>Other Detials: {response['mainProduct']['details']}</CardText>
                         </CardBody>
                     </Card>
                     <div>
                         <Table>
                             <thead>
                                 <tr>
-                                    {['one', 'two', 'three', 'four'].map((content, index) =>
-                                        <th key={index}>{content}</th>)}
+                                    {[response['mainProduct']['titleName'], response['firstSuggestion']['titleName'],
+                                    response['secondSuggestion']['titleName'], response['thirdSuggestion']['titleName']]
+                                        .map((content, index) =>
+                                            <th key={index}>{content}</th>)}
                                 </tr>
                             </thead>
                             <tbody>
