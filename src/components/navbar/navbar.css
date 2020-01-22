@@ -71,3 +71,7 @@
     display: flex;
   }
 }
+.whiteText{
+  color:white !important;
+  
+}

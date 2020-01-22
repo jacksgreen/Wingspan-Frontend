@@ -8,9 +8,11 @@ import {
     Nav,
     NavItem,
     NavLink,
-    NavbarText
+    NavbarText,
+    Button
 } from 'reactstrap';
 import './navbar.css'
+import GetAppIcon from '@material-ui/icons/GetApp';
 
 interface Props {
     changePage: () => void
@@ -40,6 +42,9 @@ const NavBar: React.FC<Props> = (props) => {
                         </NavItem>
                         <NavItem>
                             <NavLink href="/research/" className="navbar-link" active={window.location.href.includes('research')}>research</NavLink>
+                        </NavItem>
+                        <NavItem>
+                        <Button color="success"><a href="http://www.google.com" className="whiteText" target="_blank">Download <GetAppIcon/></a></Button>
                         </NavItem>
                     </Nav>
                 </Collapse>
