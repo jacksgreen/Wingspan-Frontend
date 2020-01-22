@@ -1,6 +1,15 @@
 .navbar-container{
     height: 60px;
 }
+.search-link {
+    padding: 0;
+    color: white;
+    display: flex;
+}
+.search-link:hover {
+    opacity: 0.8;
+    color: white;
+}
 .bg-success {
     background: #4267b2 !important;
 }

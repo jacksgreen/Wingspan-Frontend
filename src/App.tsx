@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Navbar from './components/navbar/navbar'
 import Body from './components/productPage/body'
@@ -7,13 +7,16 @@ import AboutPage from './components/aboutPage/about';
 
 
 const App: React.FC = () => {
+  const [showSearchPage, setShowSearchPage] = useState(false)
+  const changePage = (): void => setShowSearchPage(true)
+
   return (
     <div className="app-container">
-      <Navbar />
+      <Navbar changePage={changePage}/>
       <Router>
         <Switch>
           <Route exact path="/">
-              <Body />
+            <Body showSearchPage={showSearchPage} />
           </Route>
           <Route exact path="/about">
             <AboutPage />

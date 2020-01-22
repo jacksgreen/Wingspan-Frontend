@@ -31,8 +31,11 @@ interface Response {
   secondSuggestion?: Product;
   thirdSuggestion?: Product;
 }
+interface Props {
+  showSearchPage: boolean
+}
 
-const Body = () => {
+const Body: React.FC<Props> = (props) => {
   const [response, setResponse] = useState<Response | undefined>({
     msg: 'Not Loaded'
   });
@@ -42,15 +45,21 @@ const Body = () => {
       console.log(resp);
       setResponse(resp);
       setLoaded(true);
+      const { showSearchPage } = props;
+      if(showSearchPage) {
+        let tempResponse = {...response}
+        tempResponse['msg'] = 'No URL'
+        setResponse(tempResponse)
+      }
     });
   }, []);
 
   const [search, setSearch] = useState('');
-  const handleSearch = function(event: React.ChangeEvent<HTMLInputElement>) {
+  const handleSearch = function (event: React.ChangeEvent<HTMLInputElement>) {
     setSearch(event.target.value);
   };
 
-  const handleSubmit = async function() {
+  const handleSubmit = async function () {
     const dataU = await getData(search);
     setResponse(dataU);
     console.log(dataU);

@@ -12,11 +12,14 @@ import {
 } from 'reactstrap';
 import './navbar.css'
 
-const NavBar = () => {
+interface Props {
+    changePage: () => void
+}
+
+const NavBar: React.FC<Props> = (props) => {
     const [isOpen, setIsOpen] = useState(false);
-
     const toggle = () => setIsOpen(!isOpen);
-
+    const { changePage } = props;
     return (
         <div className="navbar-container">
             <Navbar color="success" expand="md" scrolling dark fixed="top">
@@ -39,7 +42,9 @@ const NavBar = () => {
                     </Nav>
                 </Collapse>
                 <div className="right-side-navbar-container">
-                    <SearchIcon className="navbar-search" fontSize="inherit" color="inherit" />
+                    <NavLink href="/" className="search-link">
+                        <SearchIcon onClick={changePage} className="navbar-search" fontSize="inherit" color="inherit" />
+                    </NavLink>
                     <NavbarBrand className="wingspan-brand-name">WingSpan</NavbarBrand>
                 </div>
             </Navbar>
