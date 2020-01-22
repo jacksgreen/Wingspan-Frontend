@@ -26,6 +26,7 @@ interface Product {
   ecoscore: string;
   photoUrl: string;
   features: string[];
+  url: string;
 }
 interface Response {
   msg?: string;
@@ -174,7 +175,6 @@ const Body: React.FC<Props> = props => {
                   <th className='rowTable'>
                     <b>Price: </b>
                   </th>
-
                   {[
                     response['mainProduct']['price'],
                     response['firstSuggestion']['price'],
@@ -220,6 +220,18 @@ const Body: React.FC<Props> = props => {
                         })}
                       </ul>
                     </td>
+                  ))}
+                </tr>
+                <tr>
+                  <th className='rowTable'>
+                  </th>
+                  {[
+                    response['mainProduct']['url'],
+                    response['firstSuggestion']['url'],
+                    response['secondSuggestion']['url'],
+                    response['thirdSuggestion']['url']
+                  ].map((content, index) => (
+                    <td key={index}><a href={content} target="_blank"><b>Buy now</b></a></td>
                   ))}
                 </tr>
               </tbody>
