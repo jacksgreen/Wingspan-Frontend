@@ -73,54 +73,58 @@ const Body: React.FC<Props> = props => {
           <div className='d-flex justify-content-center'>
             <Card className='align-items-center p-1 w-50 m-2 main-product-wrapper'>
               <CardBody>
-                <CardTitle>
-                  <h3>
-                    <b>{response['mainProduct']['title']}</b>
-                  </h3>
-                </CardTitle>
-                <CardImg
-                  top
-                  className='mainCardImg'
-                  src={response.mainProduct.photoUrl}
-                  alt={response.mainProduct.photoUrl}
-                />
-                <CardText>
-                  <b>Type: </b>
-                  {response['mainProduct']['type']}
-                </CardText>
-                <CardText>
-                  <b>WingSpan Score:</b> {response['mainProduct']['ecoscore']}
-                </CardText>
-                <CardText>
-                  <b>Price: </b> ${response['mainProduct']['price']}
-                </CardText>
-                <CardText>
-                  <b>Composition:</b>{' '}
-                  <ul>
-                    {response['mainProduct']['composition'].map(
-                      (content, index) => {
-                        return <li key={index}>{content}</li>;
-                      }
-                    )}
-                  </ul>
-                </CardText>
-                <CardText>
-                  <b>Other Details:</b>{' '}
-                  <ul>
-                    {response['mainProduct']['features'].map(
-                      (content, index) => {
-                        return <li key={index}>{content}</li>;
-                      }
-                    )}
-                  </ul>
-                </CardText>
+                <div className='product-top-header'>
+                  <CardTitle>
+                    <h3>
+                      <b>{response['mainProduct']['title']}</b>
+                    </h3>
+                  </CardTitle>
+                  <CardImg
+                    top
+                    className='mainCardImg'
+                    src={response.mainProduct.photoUrl}
+                    alt={response.mainProduct.photoUrl}
+                  />
+                </div>
+                <div className='product-top-body'>
+                  <CardText>
+                    <b>Type: </b>
+                    {response['mainProduct']['type']}
+                  </CardText>
+                  <CardText>
+                    <b>WingSpan Score:</b> {response['mainProduct']['ecoscore']}
+                  </CardText>
+                  <CardText>
+                    <b>Price: </b> ${response['mainProduct']['price']}
+                  </CardText>
+                  <CardText>
+                    <b>Composition:</b>{' '}
+                    <ul>
+                      {response['mainProduct']['composition'].map(
+                        (content, index) => {
+                          return <li key={index}>{content}</li>;
+                        }
+                      )}
+                    </ul>
+                  </CardText>
+                  <CardText>
+                    <b>Other Details:</b>{' '}
+                    <ul>
+                      {response['mainProduct']['features'].map(
+                        (content, index) => {
+                          return <li key={index}>{content}</li>;
+                        }
+                      )}
+                    </ul>
+                  </CardText>
+                </div>
               </CardBody>
             </Card>
           </div>
           <div>
             <Table>
               <thead>
-                <tr>
+                <tr compare-top-row>
                   <th></th>
                   {[
                     response['mainProduct']['photoUrl'],
@@ -128,7 +132,7 @@ const Body: React.FC<Props> = props => {
                     response['secondSuggestion']['photoUrl'],
                     response['thirdSuggestion']['photoUrl']
                   ].map((content, index) => (
-                    <th key={index} className='colTable'>
+                    <th key={index} className='colTable compare-img'>
                       <div
                         className='imgInTable'
                         style={{ backgroundImage: `url(${content})` }}
@@ -191,7 +195,7 @@ const Body: React.FC<Props> = props => {
                     response['thirdSuggestion']['composition']
                   ].map((content, index) => (
                     <td>
-                      <ul>
+                      <ul className='product-description-list'>
                         {content.map((inner, index) => {
                           return <li key={index}>{inner}</li>;
                         })}
@@ -210,7 +214,7 @@ const Body: React.FC<Props> = props => {
                     response['thirdSuggestion']['features']
                   ].map((content, index) => (
                     <td>
-                      <ul>
+                      <ul className='product-description-list'>
                         {content.map((inner, index) => {
                           return <li key={index}>{inner}</li>;
                         })}

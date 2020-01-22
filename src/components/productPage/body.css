@@ -1,12 +1,13 @@
 .mainCardImg {
-  width: 15%;
+  width: 26%;
 }
 
 .imgInTable {
   width: 100px;
   height: 100px;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
+  padding: 5px;
 }
 
 table {
@@ -102,4 +103,20 @@ th:focus::after {
 }
 .card-title > h3 {
   font-size: 20px;
+}
+
+.product-top-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-top-body {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.product-description-list {
+  margin-left: -30px;
 }
