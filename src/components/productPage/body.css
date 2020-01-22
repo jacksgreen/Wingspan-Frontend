@@ -102,3 +102,11 @@ th:focus::after {
 .card-title > h3 {
   font-size: 20px;
 }
+
+Table td:nth-child(2){
+  background-color: #ffc;
+}
+
+Table th:nth-child(2){
+  background-color: #ffc;
+}
