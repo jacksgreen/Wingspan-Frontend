@@ -1,36 +1,37 @@
-.mainCardImg{
-    width:15%;
+.mainCardImg {
+  width: 15%;
 }
 
-.imgInTable{
-    width:100px;
-    height:100px;
-    background-repeat: no-repeat;
-    background-size: cover;
+.imgInTable {
+  width: 100px;
+  height: 100px;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-Table {
-    overflow: hidden;
-  }
-  
-  td, th {
-    padding: 10px;
-    position: relative;
-    outline: 0;
-  }
-  
-  body:not(.nohover) tbody tr:hover {
-    background-color: #ffa;
-  }
+table {
+  overflow: hidden;
+}
+
+td,
+th {
+  padding: 10px;
+  position: relative;
+  outline: 0;
+}
+
+body:not(.nohover) tbody tr:hover {
+  background-color: #ffa;
+}
 
 td:hover::after,
 thead th:not(:empty):hover::after,
 td:focus::after,
-thead th:not(:empty):focus::after { 
-  content: '';  
+thead th:not(:empty):focus::after {
+  content: '';
   height: 10000px;
   left: 0;
-  position: absolute;  
+  position: absolute;
   top: -5000px;
   width: 100%;
   z-index: -1;
@@ -44,4 +45,10 @@ th:hover::after {
 td:focus::after,
 th:focus::after {
   background-color: lightblue;
+}
+
+.main-product-wrapper {
+  box-shadow: 0 2px 15px -60px rgba(0, 0, 0, 0.283),
+    0 6.7px 50.5px -60px rgba(0, 0, 0, 0.417),
+    0 30px 226px -60px rgba(0, 0, 0, 0.7);
 }
