@@ -18,11 +18,14 @@ import './body.css';
 
 interface Product {
   price: string;
-  titleName: string;
-  subTitle: string;
-  ecoScore: string;
+  brand: string;
+  title: string;
+  composition: string[];
+  type: string;
+  parent_type: string;
+  ecoscore: string;
   photoUrl: string;
-  details: string;
+  features: string[];
 }
 interface Response {
   msg?: string;
@@ -55,11 +58,11 @@ const Body: React.FC<Props> = props => {
   }, []);
 
   const [search, setSearch] = useState('');
-  const handleSearch = function(event: React.ChangeEvent<HTMLInputElement>) {
+  const handleSearch = function (event: React.ChangeEvent<HTMLInputElement>) {
     setSearch(event.target.value);
   };
 
-  const handleSubmit = async function() {
+  const handleSubmit = async function () {
     const dataU = await getData(search);
     setResponse(dataU);
     console.log(dataU);
@@ -79,19 +82,30 @@ const Body: React.FC<Props> = props => {
               />
               <CardBody>
                 <CardTitle>
-                  <h3>{response['mainProduct']['titleName']}</h3>
+                  <h3>{response['mainProduct']['title']}</h3>
                 </CardTitle>
                 <CardSubtitle>
-                  <h5>{response['mainProduct']['subTitle']}</h5>
+                  <h5>{response['mainProduct']['type']}</h5>
                 </CardSubtitle>
                 <CardText>
-                  <b>WingSpan Score:</b> {response['mainProduct']['ecoScore']}
+                  <b>WingSpan Score:</b> {response['mainProduct']['ecoscore']}
                 </CardText>
                 <CardText>
-                  <b>Price:</b> {response['mainProduct']['price']}
+                  <b>Price: </b> ${response['mainProduct']['price']}
                 </CardText>
                 <CardText>
-                  <b>Other Details:</b> {response['mainProduct']['details']}
+                  <b>Composition:</b>  <ul>
+                    {response['mainProduct']['composition'].map((content, index) => {
+                      return (<li key={index}>{content}</li>)
+                    })}
+                  </ul>
+                </CardText>
+                <CardText>
+                  <b>Other Details:</b> <ul>
+                    {response['mainProduct']['features'].map((content, index) => {
+                      return (<li key={index}>{content}</li>)
+                    })}
+                  </ul>
                 </CardText>
               </CardBody>
             </Card>
@@ -122,10 +136,10 @@ const Body: React.FC<Props> = props => {
                     <b>Title: </b>
                   </th>
                   {[
-                    response['mainProduct']['titleName'],
-                    response['firstSuggestion']['titleName'],
-                    response['secondSuggestion']['titleName'],
-                    response['thirdSuggestion']['titleName']
+                    response['mainProduct']['title'],
+                    response['firstSuggestion']['title'],
+                    response['secondSuggestion']['title'],
+                    response['thirdSuggestion']['title']
                   ].map((content, index) => (
                     <td key={index}>
                       <h5>{content}</h5>
@@ -134,13 +148,28 @@ const Body: React.FC<Props> = props => {
                 </tr>
                 <tr>
                   <th className='rowTable'>
+                    <b>Type: </b>
+                  </th>
+                  {[
+                    response['mainProduct']['type'],
+                    response['firstSuggestion']['type'],
+                    response['secondSuggestion']['type'],
+                    response['thirdSuggestion']['type']
+                  ].map((content, index) => (
+                    <td key={index}>
+                      {content}
+                    </td>
+                  ))}
+                </tr>
+                <tr>
+                  <th className='rowTable'>
                     <b>WingSpan Score: </b>
                   </th>
                   {[
-                    response['mainProduct']['ecoScore'],
-                    response['firstSuggestion']['ecoScore'],
-                    response['secondSuggestion']['ecoScore'],
-                    response['thirdSuggestion']['ecoScore']
+                    response['mainProduct']['ecoscore'],
+                    response['firstSuggestion']['ecoscore'],
+                    response['secondSuggestion']['ecoscore'],
+                    response['thirdSuggestion']['ecoscore']
                   ].map((content, index) => (
                     <td key={index}>{content}</td>
                   ))}
@@ -156,20 +185,41 @@ const Body: React.FC<Props> = props => {
                     response['secondSuggestion']['price'],
                     response['thirdSuggestion']['price']
                   ].map((content, index) => (
-                    <td key={index}>{content}</td>
+                    <td key={index}>${content}</td>
                   ))}
                 </tr>
+                <tr>
+                <th className='rowTable'>
+                  <b>Composition: </b>
+                </th>
+                {[
+                  response['mainProduct']['composition'],
+                  response['firstSuggestion']['composition'],
+                  response['secondSuggestion']['composition'],
+                  response['thirdSuggestion']['composition']
+                ].map((content, index) => (
+                  <td><ul>
+                    {content.map((inner, index) => {
+                      return (<li key={index}>{inner}</li>)
+                    })}
+                  </ul></td>
+                ))}
+              </tr>
                 <tr>
                   <th className='rowTable'>
                     <b>More Details: </b>
                   </th>
                   {[
-                    response['mainProduct']['details'],
-                    response['firstSuggestion']['details'],
-                    response['secondSuggestion']['details'],
-                    response['thirdSuggestion']['details']
+                    response['mainProduct']['features'],
+                    response['firstSuggestion']['features'],
+                    response['secondSuggestion']['features'],
+                    response['thirdSuggestion']['features']
                   ].map((content, index) => (
-                    <td key={index}>{content}</td>
+                    <td><ul>
+                      {content.map((inner, index) => {
+                        return (<li key={index}>{inner}</li>)
+                      })}
+                    </ul></td>
                   ))}
                 </tr>
               </tbody>

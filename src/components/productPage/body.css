@@ -81,3 +81,7 @@ th:focus::after {
   /* background-position: center; */
   background-size: cover;
 }
+
+.form-control {
+  width: 400px;
+}
