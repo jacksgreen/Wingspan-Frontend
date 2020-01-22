@@ -52,7 +52,7 @@ th:focus::after {
   box-shadow: 0 2px 15px -60px rgba(0, 0, 0, 0.283),
     0 6.7px 50.5px -60px rgba(0, 0, 0, 0.417),
     0 30px 226px -60px rgba(0, 0, 0, 0.7);
-  margin-top: 30px !important;
+  margin-top: 90px !important;
 }
 
 .app-container {
