@@ -36,6 +36,9 @@ const NavBar: React.FC<Props> = (props) => {
                         <NavItem>
                             <NavLink href="/about/" className="text-white">About</NavLink>
                         </NavItem>
+                        <NavItem>
+                            <NavLink href="/research/" className="text-white">Research</NavLink>
+                        </NavItem>
                     </Nav>
                 </Collapse>
                 <div className="right-side-navbar-container">
