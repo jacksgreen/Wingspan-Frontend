@@ -4,10 +4,9 @@
     height: 250px;
     justify-content: space-around;
     align-items: center;
-    background-image: radial-gradient( circle 613px at 24.5% 36%,  rgba(165,233,138,1) 0%, #bbb 90% );
     border-radius: 20px;
     padding: 20px;
-    margin-top: 100px
+    margin-top: 100px;
 }
 .input {
     text-align: center;
@@ -16,11 +15,45 @@
 }
 .page-container {
     flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    background-image: linear-gradient( 109.6deg,  rgba(223,234,247,1) 11.2%, rgba(244,248,252,1) 91.1% );
+    flex-direction: column;
+    display: flex; 
+    align-items: center;
+    background-image: radial-gradient( circle 613px at 24.5% 36%,  rgba(165,233,138,1) 0%, #bbb 90% );
     width: 100vw;
 }
 .widget-title {
     text-align: center;
+}
+.results-container {
+    border-top: 1px solid #D1D1D1;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    width: 100vw;
+    justify-content: space-around;
+}
+.box{
+    width: 18%;
+    height: 150px;
+    border: 1px solid #D1D1D1;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 20px;
+}
+.box-img {
+    width: 45%;
+    background-image: url('../../img/pineforests.gif');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.box-data {
+    width: 45%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.box-result {
+    font-weight: 700;
 }
