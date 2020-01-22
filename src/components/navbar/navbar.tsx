@@ -25,7 +25,7 @@ const NavBar: React.FC<Props> = (props) => {
             <Navbar color="success" expand="md" scrolling dark fixed="top">
                 <div className="wingspan-brand-container">
                     <NavbarBrand className="tree"></NavbarBrand>
-                    <NavbarBrand className="text-white wingspan-brand-name-mobile">WingSpan</NavbarBrand>
+                    <NavbarBrand className="wingspan-brand-name-mobile">WingSpan</NavbarBrand>
                     <div className="search-container">
                         <NavLink href="/" className="search-link">
                             <SearchIcon className="navbar-search" fontSize="inherit" color="inherit" />
@@ -36,10 +36,10 @@ const NavBar: React.FC<Props> = (props) => {
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto" navbar>
                         <NavItem>
-                            <NavLink href="/about/" className="text-white">about</NavLink>
+                            <NavLink href="/about/" className="navbar-link">about</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href="/research/" className="text-white">research</NavLink>
+                            <NavLink href="/research/" className="navbar-link">research</NavLink>
                         </NavItem>
                     </Nav>
                 </Collapse>
