@@ -33,9 +33,6 @@ const NavBar: React.FC<Props> = (props) => {
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto" navbar>
-                        <NavItem className="nav-item">
-                            <NavLink href="/product/" className="text-white">Product</NavLink>
-                        </NavItem>
                         <NavItem>
                             <NavLink href="/about/" className="text-white">About</NavLink>
                         </NavItem>

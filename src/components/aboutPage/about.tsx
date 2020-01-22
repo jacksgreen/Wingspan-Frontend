@@ -13,7 +13,7 @@ const AboutPage: React.FC = () => {
                 <source src="/forest.mp4" type="video/mp4" />
             </video>
             <div className="about-container">
-                <h1>About</h1>
+                
             </div>
         </div>
     )
