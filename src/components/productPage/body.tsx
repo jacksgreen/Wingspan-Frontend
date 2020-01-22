@@ -16,6 +16,7 @@ interface Product {
     details: string,
 }
 interface Response {
+    msg?: string,
     mainProduct?: Product,
     firstSuggestion?: Product,
     secondSuggestion?: Product,
@@ -23,7 +24,7 @@ interface Response {
 }
 
 const Body = () => {
-    const [response, setResponse] = useState<Response | undefined>()
+    const [response, setResponse] = useState<Response | undefined>({ 'msg': 'Not Loaded' })
     const [loaded, setLoaded] = useState(false)
     useEffect(() => {
         getResponse().then(resp => {
@@ -36,7 +37,8 @@ const Body = () => {
 
     return (
         <div>
-            {loaded &&
+
+            {response['msg'] === 'Success' && loaded &&
                 <div className="align-items-center">
                     <Card className="align-items-center p-1 w-50">
                         <CardImg top className="mainCardImg" src={response.mainProduct.photoUrl} alt={response.mainProduct.photoUrl} />
@@ -79,8 +81,11 @@ const Body = () => {
                                 </tr>
                             </tbody>
                         </Table>
-                    </div></div>}
+                    </div>
+                </div>}
             {!loaded && <div>loading...</div>}
+            {response['msg'] === 'No URL' && loaded && <div>Jacks Page</div>}
+
         </div>
     )
 }
