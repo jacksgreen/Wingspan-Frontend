@@ -1,13 +1,19 @@
+@font-face {
+  font-family: 'FuturaLT-Light';
+  src: url('./assets/Futura_LT/FuturaLT-Light.ttf');
+}
+@font-face {
+  font-family: 'FuturaLT-Bold';
+  src: url('./assets/Futura_LT/FuturaLT-Bold.ttf');
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: FuturaLT-Light,FuturaLT-Bold,Arial, Helvetica, sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: FuturaLT-Light,FuturaLT-Bold,Arial, Helvetica, sans-serif !important;
 }

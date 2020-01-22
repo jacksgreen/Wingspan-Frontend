@@ -45,7 +45,6 @@ const Body: React.FC<Props> = props => {
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     getResponse().then(resp => {
-      console.log(resp);
       setResponse(resp);
       setLoaded(true);
       const { showSearchPage } = props;
@@ -58,35 +57,35 @@ const Body: React.FC<Props> = props => {
   }, []);
 
   const [search, setSearch] = useState('');
-  const handleSearch = function (event: React.ChangeEvent<HTMLInputElement>) {
+  const handleSearch = function(event: React.ChangeEvent<HTMLInputElement>) {
     setSearch(event.target.value);
   };
 
-  const handleSubmit = async function () {
+  const handleSubmit = async function() {
     const dataU = await getData(search);
     setResponse(dataU);
-    console.log(dataU);
   };
 
   return (
-    <div>
+    <div className='outer-product-wrapper'>
       {response['msg'] === 'Success' && loaded && (
         <div className='align-items-center bodyContainer'>
           <div className='d-flex justify-content-center'>
             <Card className='align-items-center p-1 w-50 m-2 main-product-wrapper'>
-              <CardImg
-                top
-                className='mainCardImg'
-                src={response.mainProduct.photoUrl}
-                alt={response.mainProduct.photoUrl}
-              />
               <CardBody>
                 <CardTitle>
                   <h3>{response['mainProduct']['title']}</h3>
                 </CardTitle>
-                <CardSubtitle>
-                  <h5>{response['mainProduct']['type']}</h5>
-                </CardSubtitle>
+                <CardImg
+                  top
+                  className='mainCardImg'
+                  src={response.mainProduct.photoUrl}
+                  alt={response.mainProduct.photoUrl}
+                />
+                <CardText>
+                  <b>Type: </b>
+                  {response['mainProduct']['type']}
+                </CardText>
                 <CardText>
                   <b>WingSpan Score:</b> {response['mainProduct']['ecoscore']}
                 </CardText>
@@ -94,17 +93,13 @@ const Body: React.FC<Props> = props => {
                   <b>Price: </b> ${response['mainProduct']['price']}
                 </CardText>
                 <CardText>
-                  <b>Composition:</b>  <ul>
-                    {response['mainProduct']['composition'].map((content, index) => {
-                      return (<li key={index}>{content}</li>)
-                    })}
-                  </ul>
-                </CardText>
-                <CardText>
-                  <b>Other Details:</b> <ul>
-                    {response['mainProduct']['features'].map((content, index) => {
-                      return (<li key={index}>{content}</li>)
-                    })}
+                  <b>Other Details:</b>{' '}
+                  <ul>
+                    {response['mainProduct']['features'].map(
+                      (content, index) => {
+                        return <li key={index}>{content}</li>;
+                      }
+                    )}
                   </ul>
                 </CardText>
               </CardBody>
@@ -148,21 +143,6 @@ const Body: React.FC<Props> = props => {
                 </tr>
                 <tr>
                   <th className='rowTable'>
-                    <b>Type: </b>
-                  </th>
-                  {[
-                    response['mainProduct']['type'],
-                    response['firstSuggestion']['type'],
-                    response['secondSuggestion']['type'],
-                    response['thirdSuggestion']['type']
-                  ].map((content, index) => (
-                    <td key={index}>
-                      {content}
-                    </td>
-                  ))}
-                </tr>
-                <tr>
-                  <th className='rowTable'>
                     <b>WingSpan Score: </b>
                   </th>
                   {[
@@ -189,23 +169,6 @@ const Body: React.FC<Props> = props => {
                   ))}
                 </tr>
                 <tr>
-                <th className='rowTable'>
-                  <b>Composition: </b>
-                </th>
-                {[
-                  response['mainProduct']['composition'],
-                  response['firstSuggestion']['composition'],
-                  response['secondSuggestion']['composition'],
-                  response['thirdSuggestion']['composition']
-                ].map((content, index) => (
-                  <td><ul>
-                    {content.map((inner, index) => {
-                      return (<li key={index}>{inner}</li>)
-                    })}
-                  </ul></td>
-                ))}
-              </tr>
-                <tr>
                   <th className='rowTable'>
                     <b>More Details: </b>
                   </th>
@@ -215,11 +178,13 @@ const Body: React.FC<Props> = props => {
                     response['secondSuggestion']['features'],
                     response['thirdSuggestion']['features']
                   ].map((content, index) => (
-                    <td><ul>
-                      {content.map((inner, index) => {
-                        return (<li key={index}>{inner}</li>)
-                      })}
-                    </ul></td>
+                    <td>
+                      <ul>
+                        {content.map((inner, index) => {
+                          return <li key={index}>{inner}</li>;
+                        })}
+                      </ul>
+                    </td>
                   ))}
                 </tr>
               </tbody>

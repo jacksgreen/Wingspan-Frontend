@@ -51,6 +51,7 @@ th:focus::after {
   box-shadow: 0 2px 15px -60px rgba(0, 0, 0, 0.283),
     0 6.7px 50.5px -60px rgba(0, 0, 0, 0.417),
     0 30px 226px -60px rgba(0, 0, 0, 0.7);
+  margin-top: 30px !important;
 }
 
 .app-container {
@@ -84,4 +85,20 @@ th:focus::after {
 
 .form-control {
   width: 400px;
+}
+
+.outer-product-wrapper {
+  background-color: #ebffeb;
+  z-index: 0;
+}
+
+.card-body {
+  width: 100%;
+}
+
+.card-body > img {
+  margin: 20px 0;
+}
+.card-title > h3 {
+  font-size: 20px;
 }
