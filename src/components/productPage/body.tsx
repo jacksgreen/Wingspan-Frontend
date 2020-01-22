@@ -45,7 +45,6 @@ const Body: React.FC<Props> = props => {
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     getResponse().then(resp => {
-      console.log(resp);
       setResponse(resp);
       setLoaded(true);
       const { showSearchPage } = props;
@@ -65,7 +64,6 @@ const Body: React.FC<Props> = props => {
   const handleSubmit = async function() {
     const dataU = await getData(search);
     setResponse(dataU);
-    console.log(dataU);
   };
 
   return (

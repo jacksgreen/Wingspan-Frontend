@@ -1,0 +1,23 @@
+.widget-container {
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+    justify-content: space-around;
+    align-items: center;
+    background-image: radial-gradient( circle 613px at 24.5% 36%,  rgba(165,233,138,1) 0%, #bbb 90% );
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 100px
+}
+.input {
+    text-align: center;
+    width: 80px;
+    margin-left: 10px;
+}
+.page-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient( 109.6deg,  rgba(223,234,247,1) 11.2%, rgba(244,248,252,1) 91.1% );
+    width: 100vw;
+}
