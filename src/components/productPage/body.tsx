@@ -94,6 +94,13 @@ const Body: React.FC<Props> = props => {
                   <b>Price: </b> ${response['mainProduct']['price']}
                 </CardText>
                 <CardText>
+                  <b>Composition:</b>  <ul>
+                    {response['mainProduct']['composition'].map((content, index) => {
+                      return (<li key={index}>{content}</li>)
+                    })}
+                  </ul>
+                </CardText>
+                <CardText>
                   <b>Other Details:</b> <ul>
                     {response['mainProduct']['features'].map((content, index) => {
                       return (<li key={index}>{content}</li>)
@@ -141,6 +148,21 @@ const Body: React.FC<Props> = props => {
                 </tr>
                 <tr>
                   <th className='rowTable'>
+                    <b>Type: </b>
+                  </th>
+                  {[
+                    response['mainProduct']['type'],
+                    response['firstSuggestion']['type'],
+                    response['secondSuggestion']['type'],
+                    response['thirdSuggestion']['type']
+                  ].map((content, index) => (
+                    <td key={index}>
+                      {content}
+                    </td>
+                  ))}
+                </tr>
+                <tr>
+                  <th className='rowTable'>
                     <b>WingSpan Score: </b>
                   </th>
                   {[
@@ -166,6 +188,23 @@ const Body: React.FC<Props> = props => {
                     <td key={index}>${content}</td>
                   ))}
                 </tr>
+                <tr>
+                <th className='rowTable'>
+                  <b>Composition: </b>
+                </th>
+                {[
+                  response['mainProduct']['composition'],
+                  response['firstSuggestion']['composition'],
+                  response['secondSuggestion']['composition'],
+                  response['thirdSuggestion']['composition']
+                ].map((content, index) => (
+                  <td><ul>
+                    {content.map((inner, index) => {
+                      return (<li key={index}>{inner}</li>)
+                    })}
+                  </ul></td>
+                ))}
+              </tr>
                 <tr>
                   <th className='rowTable'>
                     <b>More Details: </b>
