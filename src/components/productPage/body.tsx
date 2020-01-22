@@ -68,7 +68,10 @@ const Body: React.FC<Props> = props => {
   return (
     <div>
       {response['msg'] === 'Success' && loaded && (
-        <div className='align-items-center'>
+        <div className='align-items-center bodyContainer'>
+          <video autoPlay muted loop id='myVideo'>
+            <source src='/forest.mp4' type='video/mp4' />
+          </video>
           <div className='d-flex justify-content-center'>
             <Card className='align-items-center p-1 w-50 m-2 main-product-wrapper'>
               <CardImg
