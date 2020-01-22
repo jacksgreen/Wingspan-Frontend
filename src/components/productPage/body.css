@@ -82,7 +82,6 @@ th:focus::after {
   background-size: cover;
 }
 
-.widget{
-  background-color: white;
-  target: '_blank'
+.form-control {
+  width: 400px;
 }
