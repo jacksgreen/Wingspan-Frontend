@@ -7,9 +7,13 @@ import {
   CardTitle,
   CardSubtitle,
   Button,
-  Table
+  Table,
+  Form,
+  FormGroup,
+  Label,
+  Input
 } from 'reactstrap';
-import { getResponse } from '../../api';
+import { getResponse, getData } from '../../api';
 import './body.css';
 
 interface Product {
@@ -40,6 +44,17 @@ const Body = () => {
       setLoaded(true);
     });
   }, []);
+
+  const [search, setSearch] = useState('');
+  const handleSearch = function(event: React.ChangeEvent<HTMLInputElement>) {
+    setSearch(event.target.value);
+  };
+
+  const handleSubmit = async function() {
+    const dataU = await getData(search);
+    setResponse(dataU);
+    console.log(dataU);
+  };
 
   return (
     <div>
@@ -107,7 +122,25 @@ const Body = () => {
         </div>
       )}
       {!loaded && <div>loading...</div>}
-      {response['msg'] === 'No URL' && loaded && <div>Jacks Page</div>}
+      {response['msg'] === 'No URL' && loaded && (
+        <div>
+          <Form>
+            <FormGroup>
+              <Input
+                required
+                type='text'
+                name='home-search-bar'
+                id='home-search-bar'
+                placeholder='Enter a URL...'
+                onChange={event => handleSearch(event)}
+              ></Input>
+            </FormGroup>
+            <Button type='button' onClick={() => handleSubmit()}>
+              Search
+            </Button>
+          </Form>
+        </div>
+      )}
     </div>
   );
 };
