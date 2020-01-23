@@ -27,14 +27,20 @@ interface Product {
   price: string;
   brand: string;
   title: string;
-  composition: string[];
-  type: string;
-  parent_type: string;
-  ecoscore: string;
-  photoUrl: string;
-  features: string[];
+  brand_score: string;
+  cotton: string;
+  cot_pcth: number;
+  polyester: string;
+  pol_pctg: number;
+  ismale: number;
+  ecoscore: number;
+  co2: number;
+  urlPhoto: string;
+  weight: number;
   url: string;
+  description: string;
 }
+
 interface Response {
   msg?: string;
   mainProduct?: Product;
@@ -52,7 +58,7 @@ const Body: React.FC<Props> = props => {
   const [isInvalid, setIsInvalid] = useState();
   const [isValid, setIsValid] = useState();
   const toggle = () => setTooltipOpen(!tooltipOpen);
-  const wingspanFormulaDescription = 'Enter Formula here';
+  const wingspanFormulaDescription = 'F(BrandScore,co2)';
   const [response, setResponse] = useState<Response | undefined>({
     msg: 'Not Loaded'
   });
@@ -109,15 +115,11 @@ const Body: React.FC<Props> = props => {
                   <CardImg
                     top
                     className='mainCardImg'
-                    src={response.mainProduct.photoUrl}
-                    alt={response.mainProduct.photoUrl}
+                    src={response.mainProduct.urlPhoto}
+                    alt={response.mainProduct.urlPhoto}
                   />
                 </div>
                 <div className='product-top-body'>
-                  <CardText>
-                    <b>Type: </b>
-                    {response['mainProduct']['type']}
-                  </CardText>
                   <CardText>
                     <span id='Tooltip'>
                       <b>
@@ -127,7 +129,7 @@ const Body: React.FC<Props> = props => {
                         </sup>
                         :
                       </b>{' '}
-                      {response['mainProduct']['ecoscore']}
+                      {response['mainProduct']['ecoscore'].toFixed(2)}
                     </span>
                     <Tooltip
                       placement='top'
@@ -139,27 +141,26 @@ const Body: React.FC<Props> = props => {
                     </Tooltip>
                   </CardText>
                   <CardText>
+                    <b>CO<sup>2</sup>: </b>{response['mainProduct']['co2']} kgs
+                  </CardText>
+                  <CardText>
                     <b>Price: </b> ${response['mainProduct']['price']}
                   </CardText>
                   <CardText>
+                    <b>Weight: </b>{response['mainProduct']['weight'].toFixed(2)} kgs
+                </CardText>
+                  <CardText>
                     <b>Composition:</b>{' '}
                     <ul>
-                      {response['mainProduct']['composition'].map(
-                        (content, index) => {
-                          return <li key={index}>{content}</li>;
-                        }
-                      )}
+                      <li>Cotton: {response['mainProduct']['cot_pcth']}%</li>
+                      <li>Polyester: {response['mainProduct']['pol_pctg']}%</li>
                     </ul>
                   </CardText>
                   <CardText>
                     <b>Other Details:</b>{' '}
-                    <ul>
-                      {response['mainProduct']['features'].map(
-                        (content, index) => {
-                          return <li key={index}>{content}</li>;
-                        }
-                      )}
-                    </ul>
+
+                    <p>{response['mainProduct']['description']}</p>
+
                   </CardText>
                   <CardText></CardText>
                 </div>
@@ -172,10 +173,10 @@ const Body: React.FC<Props> = props => {
                 <tr compare-top-row>
                   <th></th>
                   {[
-                    response['mainProduct']['photoUrl'],
-                    response['firstSuggestion']['photoUrl'],
-                    response['secondSuggestion']['photoUrl'],
-                    response['thirdSuggestion']['photoUrl']
+                    response['mainProduct']['urlPhoto'],
+                    response['firstSuggestion']['urlPhoto'],
+                    response['secondSuggestion']['urlPhoto'],
+                    response['thirdSuggestion']['urlPhoto']
                   ].map((content, index) => (
                     <th key={index} className='colTable '>
                       <div className='compare-img'>
@@ -217,7 +218,20 @@ const Body: React.FC<Props> = props => {
                     response['secondSuggestion']['ecoscore'],
                     response['thirdSuggestion']['ecoscore']
                   ].map((content, index) => (
-                    <td key={index}>{content}</td>
+                    <td key={index}>{content.toFixed(2)}</td>
+                  ))}
+                </tr>
+                <tr>
+                  <th className='rowTable' >
+                    <b>CO<sup>2</sup>: </b>
+                  </th>
+                  {[
+                    response['mainProduct']['co2'],
+                    response['firstSuggestion']['co2'],
+                    response['secondSuggestion']['co2'],
+                    response['thirdSuggestion']['co2']
+                  ].map((content, index) => (
+                    <td> {content} kgs</td>
                   ))}
                 </tr>
                 <tr>
@@ -234,19 +248,36 @@ const Body: React.FC<Props> = props => {
                   ))}
                 </tr>
                 <tr>
+                  <th className='rowTable' >
+                    <b>Weight: </b>
+                  </th>
+                  {[
+                    response['mainProduct']['weight'],
+                    response['firstSuggestion']['weight'],
+                    response['secondSuggestion']['weight'],
+                    response['thirdSuggestion']['weight']
+                  ].map((content, index) => (
+                    <td> {  Number((content).toFixed(2))} kgs</td>
+                  ))}
+                </tr>
+                <tr>
                   <th className='rowTable'>
                     <b>Composition: </b>
                   </th>
                   {[
-                    response['mainProduct']['composition'],
-                    response['firstSuggestion']['composition'],
-                    response['secondSuggestion']['composition'],
-                    response['thirdSuggestion']['composition']
+                    [response['mainProduct']['cot_pcth'], response['mainProduct']['pol_pctg']],
+                    [response['firstSuggestion']['cot_pcth'], response['firstSuggestion']['pol_pctg']],
+                    [response['secondSuggestion']['cot_pcth'], response['secondSuggestion']['pol_pctg']],
+                    [response['thirdSuggestion']['cot_pcth'], response['thirdSuggestion']['pol_pctg']]
                   ].map((content, index) => (
                     <td>
                       <ul className='product-description-list'>
                         {content.map((inner, index) => {
-                          return <li key={index}>{inner}</li>;
+                          if (index == 0) {
+                            return (<li key={index}>{inner}% Cotton</li>)
+                          } else {
+                            return (<li key={index}>{inner}% Polyester</li>)
+                          }
                         })}
                       </ul>
                     </td>
@@ -257,19 +288,13 @@ const Body: React.FC<Props> = props => {
                     <b>More Details: </b>
                   </th>
                   {[
-                    response['mainProduct']['features'],
-                    response['firstSuggestion']['features'],
-                    response['secondSuggestion']['features'],
-                    response['thirdSuggestion']['features']
+                    response['mainProduct']['description'],
+                    response['firstSuggestion']['description'],
+                    response['secondSuggestion']['description'],
+                    response['thirdSuggestion']['description']
                   ].map((content, index) => (
-                    <td>
-                      <ul className='product-description-list'>
-                        {content.map((inner, index) => {
-                          return <li key={index}>{inner}</li>;
-                        })}
-                      </ul>
-                    </td>
-                  ))}
+
+                    <td>{content}</td>))}
                 </tr>
                 <tr>
                   <th className='rowTable'></th>
