@@ -27,7 +27,7 @@ const NavBar: React.FC<Props> = (props) => {
             <Navbar color="success" expand="md" scrolling dark fixed="top">
                 <div className="wingspan-brand-container">
                     <NavbarBrand className="tree"></NavbarBrand>
-                    <NavbarBrand className="wingspan-brand-name-mobile">WingSpan</NavbarBrand>
+                    <NavbarBrand className="wingspan-brand-name">WingSpan</NavbarBrand>
                     <div className="search-container">
                         <NavLink href="/" className="search-link" >
                             <SearchIcon className="navbar-search" fontSize="inherit" color="inherit" />
@@ -43,16 +43,14 @@ const NavBar: React.FC<Props> = (props) => {
                         <NavItem>
                             <NavLink href="/research/" className="navbar-link" active={window.location.href.includes('research')}>Research</NavLink>
                         </NavItem>
-                        <NavItem>
-                        <Button color="success"><a href="http://www.google.com" className="whiteText" target="_blank">Download<GetAppIcon/></a></Button>
-                        </NavItem>
+                        <Button color="success"><a href="http://www.google.com" className="whiteText-collapse" target="_blank">Download<GetAppIcon /></a></Button>
                     </Nav>
                 </Collapse>
                 <div className="right-side-navbar-container">
                     <NavLink href="/" className="search-link">
                         <SearchIcon onClick={changePage} className="navbar-search" fontSize="inherit" color="inherit" />
                     </NavLink>
-                    <NavbarBrand className="wingspan-brand-name">WingSpan</NavbarBrand>
+                    <Button color="success"><a href="http://www.google.com" className="whiteText" target="_blank">Download<GetAppIcon /></a></Button>
                 </div>
             </Navbar>
         </div>
