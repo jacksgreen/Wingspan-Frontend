@@ -37,9 +37,6 @@
   background-repeat: no-repeat;
   background-size: contain;
 }
-.wingspan-brand-name-mobile {
-  display: none;
-}
 .right-side-navbar-container {
   color: white;
   display: flex;
@@ -73,12 +70,6 @@
   display: none;
 }
 @media screen and (max-width: 768px) {
-  .wingspan-brand-name {
-    display: none;
-  }
-  .wingspan-brand-name-mobile {
-    display: block;
-  }
   .right-side-navbar-container {
     display: none;
   }
