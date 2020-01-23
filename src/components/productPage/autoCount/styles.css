@@ -1,10 +1,9 @@
 .autocount-wrapper {
-  background-color: white;
-  color: black;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: rgba(0, 0, 0, 1);
   padding: 2%;
   position: fixed;
   bottom: 0;
-  margin-bottom: 3%;
-  border-radius: 5px;
+  border-radius: 10px 10px 0 0;
   border: 1.5px solid #606e60;
 }

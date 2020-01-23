@@ -1,14 +1,17 @@
 .about-container {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-top: 50px;
 }
 #myVideo {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-  }
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
 
+.about-download-icon {
+  color: rgb(105, 104, 104);
+}

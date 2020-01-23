@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './style.css';
 import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
+import GetAppIcon from '@material-ui/icons/GetApp';
 
 const AboutPage: React.FC = () => {
   const [video, setVideo] = useState();
