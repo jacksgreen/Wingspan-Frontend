@@ -34,28 +34,13 @@
   width: 100vw;
   justify-content: space-around;
 }
+@media screen and (max-width: 768px) {
+  .results-container {
+    flex-direction: column;
+  }
+}
+
 .box {
-  width: 18%;
-  height: 150px;
-  border: 1px solid #d1d1d1;
-  display: flex;
-  justify-content: space-between;
-  border-radius: 20px;
-}
-.box-img {
-  width: 45%;
-  background-image: url('../../img/pineforests.gif');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-.box-data {
-  width: 45%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-.box-result {
-  font-weight: 700;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 10px;
 }
