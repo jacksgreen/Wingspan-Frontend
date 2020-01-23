@@ -97,61 +97,7 @@ const Body: React.FC<Props> = props => {
     <div className='outer-product-wrapper'>
       {response['msg'] === 'Success' && loaded && (
         <div className='align-items-center bodyContainer'>
-          <div className='d-flex justify-content-center'>
-            <Card className='align-items-center p-1 w-50 m-2 main-product-wrapper'>
-              <CardBody>
-                <div className='product-top-header'>
-                  <CardTitle>
-                    <h3>
-                      <b>{response['mainProduct']['title']}</b>
-                    </h3>
-                  </CardTitle>
-                  <CardImg
-                    top
-                    className='mainCardImg'
-                    src={response.mainProduct.photoUrl}
-                    alt={response.mainProduct.photoUrl}
-                  />
-                </div>
-                <div className='product-top-body'>
-                  <CardText>
-                    <b>Type: </b>
-                    {response['mainProduct']['type']}
-                  </CardText>
-                  <CardText >
-                    <span id="Tooltip"><b>WingSpan Score<sup ><InfoIcon className="superscript" /></sup>:</b> {response['mainProduct']['ecoscore']}</span>
-                    <Tooltip placement="top" isOpen={tooltipOpen} target="Tooltip" toggle={toggle}>
-                      {wingspanFormulaDescription}
-                    </Tooltip>
-                  </CardText>
-                  <CardText>
-                    <b>Price: </b> ${response['mainProduct']['price']}
-                  </CardText>
-                  <CardText>
-                    <b>Composition:</b>{' '}
-                    <ul>
-                      {response['mainProduct']['composition'].map(
-                        (content, index) => {
-                          return <li key={index}>{content}</li>;
-                        }
-                      )}
-                    </ul>
-                  </CardText>
-                  <CardText>
-                    <b>Other Details:</b>{' '}
-                    <ul>
-                      {response['mainProduct']['features'].map(
-                        (content, index) => {
-                          return <li key={index}>{content}</li>;
-                        }
-                      )}
-                    </ul>
-                  </CardText>
-                </div>
-              </CardBody>
-            </Card>
-          </div>
-          <div>
+          <div className="bottom-product-wrapper">
             <Table>
               <thead>
                 <tr compare-top-row>
@@ -189,7 +135,7 @@ const Body: React.FC<Props> = props => {
                 </tr>
                 <tr>
                   <th className='rowTable' >
-                    <span id="Tooltip2"> <b >WingSpan Score<sup ><InfoIcon className="superscript" /></sup>: </b></span>
+                    <span id="Tooltip2"> <b >WingSpan<sup ><InfoIcon className="superscript" /></sup>: </b></span>
                     <Tooltip placement="top" isOpen={tooltipOpen} target="Tooltip2" toggle={toggle}>
                       {wingspanFormulaDescription}
                     </Tooltip>

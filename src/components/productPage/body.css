@@ -122,6 +122,7 @@ th:focus::after {
 }
 table td:nth-child(2) {
   background-color: #ffc;
+  /* font-weight: bold; */
 }
 
 table th:nth-child(2) {
@@ -130,4 +131,7 @@ table th:nth-child(2) {
 
 .superscript{
   font-size:.8rem !important;
+}
+.bottom-product-wrapper{
+  margin:0 80px;
 }
