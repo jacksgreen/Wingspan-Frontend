@@ -27,14 +27,10 @@ const AboutPage: React.FC = () => {
               do they compare to others?
               <br />
               <br />
-              By installing
-              <span className='about-download-icon'>
-                <GetAppIcon />
-              </span>
-              the chrome extension, WingSpan can quickly and easily provide you
-              with information about online products, so that you can gain a
-              better understanding of the impact that your purchase will have on
-              the environment.
+              By installing the chrome extension, WingSpan can quickly and
+              easily provide you with information about online products, so that
+              you can gain a better understanding of the impact that your
+              purchase will have on the environment.
               <br />
               <br />
               Not only does WingSpan provide you with this information, but also
