@@ -15,6 +15,7 @@ import {
   Spinner,
   FormText,
   FormFeedback,
+  UncontrolledCollapse,
 } from 'reactstrap';
 import { getResponse, getData } from '../../api';
 import './body.css';
@@ -295,7 +296,7 @@ const Body: React.FC<Props> = props => {
             >
               Search
             </Button>
-            <Autocount />
+              <Autocount />
           </Form>
         </div>
       )}
