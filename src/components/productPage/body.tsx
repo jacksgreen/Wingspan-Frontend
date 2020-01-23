@@ -90,7 +90,7 @@ const Body: React.FC<Props> = props => {
 
   const handleSubmit = async function () {
     const dataU = await getData(search);
-
+    setResponse(dataU)
   };
 
   return (
