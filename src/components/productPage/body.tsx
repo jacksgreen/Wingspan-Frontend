@@ -13,6 +13,8 @@ import {
   Tooltip,
   Input,
   Spinner,
+  FormText,
+  FormFeedback,
 } from 'reactstrap';
 import { getResponse, getData } from '../../api';
 import './body.css';
@@ -44,6 +46,9 @@ interface Props {
 
 const Body: React.FC<Props> = props => {
   const [tooltipOpen, setTooltipOpen] = useState(false);
+  const [buttonDisabled, setButtonDisabled] = useState(true);
+  const [isInvalid, setIsInvalid] = useState();
+  const [isValid, setIsValid] = useState();
   const toggle = () => setTooltipOpen(!tooltipOpen);
   const wingspanFormulaDescription = "Enter Formula here"
   const [response, setResponse] = useState<Response | undefined>({
@@ -65,12 +70,26 @@ const Body: React.FC<Props> = props => {
 
   const [search, setSearch] = useState('');
   const handleSearch = function (event: React.ChangeEvent<HTMLInputElement>) {
-    setSearch(event.target.value);
+    if (event.target.value.match('^(https?:\/\/)?(www\.)?(amazon\.)+')) {
+      setSearch(event.target.value);
+      setButtonDisabled(false)
+      setIsInvalid('')
+      setIsValid(true)
+    } else if (event.target.value == '') {
+      setIsInvalid('')
+      setIsValid('')
+      setButtonDisabled(true)
+    } else {
+      setButtonDisabled(true)
+      setIsInvalid(true)
+      setIsValid(false)
+    }
+
   };
 
   const handleSubmit = async function () {
     const dataU = await getData(search);
-    setResponse(dataU);
+
   };
 
   return (
@@ -261,18 +280,22 @@ const Body: React.FC<Props> = props => {
                 type='text'
                 name='home-search-bar'
                 id='home-search-bar'
-                placeholder='Enter a URL...'
+                placeholder='Enter an Amazon URL...'
                 onChange={event => handleSearch(event)}
+                invalid={isInvalid}
+                autoComplete="off"
+                valid={isValid}
               ></Input>
             </FormGroup>
             <Button
               type='button'
               className='btn-search'
               onClick={() => handleSubmit()}
+              disabled={buttonDisabled}
             >
               Search
             </Button>
-            <Autocount/>
+            <Autocount />
           </Form>
         </div>
       )}
