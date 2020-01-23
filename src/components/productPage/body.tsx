@@ -21,8 +21,7 @@ import { getResponse, getData } from '../../api';
 import './body.css';
 import InfoIcon from '@material-ui/icons/Info';
 import Autocount from './autoCount';
-import Box from '../Box'
-
+import Box from '../Box';
 
 interface Product {
   price: string;
@@ -59,13 +58,12 @@ interface Item {
   amount: number | string;
 }
 const Body: React.FC<Props> = props => {
-  const [carbonDAmount, setCarbonDAmount] = useState<Item>(
-    {
-      title: 'CO2 emissions from',
-      description: 'Pounds of coal burned',
-      image: 'coal.gif',
-      amount: 1.1
-    })
+  const [carbonDAmount, setCarbonDAmount] = useState<Item>({
+    title: 'CO2 emissions from',
+    description: 'Pounds of coal burned',
+    image: 'coal.gif',
+    amount: 1.1
+  });
   const [tooltipOpen, setTooltipOpen] = useState(false);
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const [isInvalid, setIsInvalid] = useState();
@@ -79,7 +77,7 @@ const Body: React.FC<Props> = props => {
   useEffect(() => {
     getResponse().then(resp => {
       setResponse(resp);
-     
+
       setLoaded(true);
       const { showSearchPage } = props;
       if (showSearchPage) {
@@ -91,7 +89,7 @@ const Body: React.FC<Props> = props => {
   }, []);
 
   const [search, setSearch] = useState('');
-  const handleSearch = function (event: React.ChangeEvent<HTMLInputElement>) {
+  const handleSearch = function(event: React.ChangeEvent<HTMLInputElement>) {
     if (event.target.value.match('^(https?://)?(www.)?(amazon.)+')) {
       setSearch(event.target.value);
       setButtonDisabled(false);
@@ -108,7 +106,7 @@ const Body: React.FC<Props> = props => {
     }
   };
 
-  const handleSubmit = async function () {
+  const handleSubmit = async function() {
     const dataU = await getData(search);
     setResponse(dataU);
   };
@@ -134,17 +132,16 @@ const Body: React.FC<Props> = props => {
                   />
                 </div>
                 <div className='product-top-body'>
-                  <div className="product-box-left">
+                  <div className='product-box-left'>
                     <CardText>
                       <span id='Tooltip'>
                         <b>
                           WingSpan
-                        <sup>
+                          <sup>
                             <InfoIcon className='superscript' />
                           </sup>
                           :
-                      </b>{' '}
-<<<<<<< HEAD
+                        </b>{' '}
                         {response['mainProduct']['ecoscore'].toFixed(2)}
                       </span>
                       <Tooltip
@@ -157,48 +154,42 @@ const Body: React.FC<Props> = props => {
                       </Tooltip>
                     </CardText>
                     <CardText>
-                      <b>CO<sup>2</sup>: </b>{response['mainProduct']['co2']} kgs
-=======
-                      {response['mainProduct']['ecoscore'].toFixed(2)}
-                    </span>
-                    <Tooltip
-                      placement='top'
-                      isOpen={tooltipOpen}
-                      target='Tooltip'
-                      toggle={toggle}
-                    >
-                      {wingspanFormulaDescription}
-                    </Tooltip>
-                  </CardText>
-                  <CardText>
-                    <b>CO<sub>2</sub>: </b>{response['mainProduct']['co2']} kgs
-                  </CardText>
-                  <CardText>
-                    <b>Price: </b> ${response['mainProduct']['price']}
->>>>>>> afcb43d666389a43f8cd9c6bad5c27d8cc4e65fb
-                  </CardText>
+                      <b>
+                        CO<sub>2</sub>:{' '}
+                      </b>
+                      {response['mainProduct']['co2']} kgs
+                    </CardText>
                     <CardText>
                       <b>Price: </b> ${response['mainProduct']['price']}
                     </CardText>
                     <CardText>
-                      <b>Weight: </b>{response['mainProduct']['weight'].toFixed(2)} kgs
-                </CardText>
+                      <b>Price: </b> ${response['mainProduct']['price']}
+                    </CardText>
+                    <CardText>
+                      <b>Weight: </b>
+                      {response['mainProduct']['weight'].toFixed(2)} kgs
+                    </CardText>
                     <CardText>
                       <b>Composition:</b>{' '}
                       <ul>
                         <li>Cotton: {response['mainProduct']['cot_pcth']}%</li>
-                        <li>Polyester: {response['mainProduct']['pol_pctg']}%</li>
+                        <li>
+                          Polyester: {response['mainProduct']['pol_pctg']}%
+                        </li>
                       </ul>
                     </CardText>
                     <CardText>
                       <b>Other Details:</b>{' '}
-
                       <p>{response['mainProduct']['description']}</p>
-
                     </CardText>
                   </div>
-                  <div className="product-box-right">
-                    <Box title={carbonDAmount.title} amount={1.1*response['mainProduct']['co2']} description={carbonDAmount.description} image={carbonDAmount.image} />
+                  <div className='product-box-right'>
+                    <Box
+                      title={carbonDAmount.title}
+                      amount={1.1 * response['mainProduct']['co2']}
+                      description={carbonDAmount.description}
+                      image={carbonDAmount.image}
+                    />
                   </div>
                   <CardText></CardText>
                 </div>
@@ -244,9 +235,23 @@ const Body: React.FC<Props> = props => {
                   ))}
                 </tr>
                 <tr>
-                  <th className='rowTable' >
-                    <span id="Tooltip2"> <b >WingSpan<sup ><InfoIcon className="superscript" /></sup>: </b></span>
-                    <Tooltip placement="top" isOpen={tooltipOpen} target="Tooltip2" toggle={toggle}>
+                  <th className='rowTable'>
+                    <span id='Tooltip2'>
+                      {' '}
+                      <b>
+                        WingSpan
+                        <sup>
+                          <InfoIcon className='superscript' />
+                        </sup>
+                        :{' '}
+                      </b>
+                    </span>
+                    <Tooltip
+                      placement='top'
+                      isOpen={tooltipOpen}
+                      target='Tooltip2'
+                      toggle={toggle}
+                    >
                       {wingspanFormulaDescription}
                     </Tooltip>
                   </th>
@@ -260,8 +265,10 @@ const Body: React.FC<Props> = props => {
                   ))}
                 </tr>
                 <tr>
-                  <th className='rowTable' >
-                    <b>CO<sub>2</sub>: </b>
+                  <th className='rowTable'>
+                    <b>
+                      CO<sub>2</sub>:{' '}
+                    </b>
                   </th>
                   {[
                     response['mainProduct']['co2'],
@@ -286,7 +293,7 @@ const Body: React.FC<Props> = props => {
                   ))}
                 </tr>
                 <tr>
-                  <th className='rowTable' >
+                  <th className='rowTable'>
                     <b>Weight: </b>
                   </th>
                   {[
@@ -295,7 +302,7 @@ const Body: React.FC<Props> = props => {
                     response['secondSuggestion']['weight'],
                     response['thirdSuggestion']['weight']
                   ].map((content, index) => (
-                    <td> {Number((content).toFixed(2))} kgs</td>
+                    <td> {Number(content.toFixed(2))} kgs</td>
                   ))}
                 </tr>
                 <tr>
@@ -303,18 +310,30 @@ const Body: React.FC<Props> = props => {
                     <b>Composition: </b>
                   </th>
                   {[
-                    [response['mainProduct']['cot_pcth'], response['mainProduct']['pol_pctg']],
-                    [response['firstSuggestion']['cot_pcth'], response['firstSuggestion']['pol_pctg']],
-                    [response['secondSuggestion']['cot_pcth'], response['secondSuggestion']['pol_pctg']],
-                    [response['thirdSuggestion']['cot_pcth'], response['thirdSuggestion']['pol_pctg']]
+                    [
+                      response['mainProduct']['cot_pcth'],
+                      response['mainProduct']['pol_pctg']
+                    ],
+                    [
+                      response['firstSuggestion']['cot_pcth'],
+                      response['firstSuggestion']['pol_pctg']
+                    ],
+                    [
+                      response['secondSuggestion']['cot_pcth'],
+                      response['secondSuggestion']['pol_pctg']
+                    ],
+                    [
+                      response['thirdSuggestion']['cot_pcth'],
+                      response['thirdSuggestion']['pol_pctg']
+                    ]
                   ].map((content, index) => (
                     <td>
                       <ul className='product-description-list'>
                         {content.map((inner, index) => {
                           if (index == 0) {
-                            return (<li key={index}>{inner}% Cotton</li>)
+                            return <li key={index}>{inner}% Cotton</li>;
                           } else {
-                            return (<li key={index}>{inner}% Polyester</li>)
+                            return <li key={index}>{inner}% Polyester</li>;
                           }
                         })}
                       </ul>
@@ -331,8 +350,8 @@ const Body: React.FC<Props> = props => {
                     response['secondSuggestion']['description'],
                     response['thirdSuggestion']['description']
                   ].map((content, index) => (
-
-                    <td>{content}</td>))}
+                    <td className='description-width'>{content}</td>
+                  ))}
                 </tr>
                 <tr>
                   <th className='rowTable'></th>
