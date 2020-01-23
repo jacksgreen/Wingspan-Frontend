@@ -4,7 +4,6 @@
   padding: 2%;
   position: fixed;
   bottom: 0;
-  margin-bottom: 6%;
-  border-radius: 5px;
+  border-radius: 10px 10px 0 0;
   border: 1.5px solid #606e60;
 }
