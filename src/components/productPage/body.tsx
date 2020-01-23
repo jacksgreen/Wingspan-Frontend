@@ -141,7 +141,7 @@ const Body: React.FC<Props> = props => {
                     </Tooltip>
                   </CardText>
                   <CardText>
-                    <b>CO<sup>2</sup>: </b>{response['mainProduct']['co2']} kgs
+                    <b>CO<sub>2</sub>: </b>{response['mainProduct']['co2']} kgs
                   </CardText>
                   <CardText>
                     <b>Price: </b> ${response['mainProduct']['price']}
@@ -223,7 +223,7 @@ const Body: React.FC<Props> = props => {
                 </tr>
                 <tr>
                   <th className='rowTable' >
-                    <b>CO<sup>2</sup>: </b>
+                    <b>CO<sub>2</sub>: </b>
                   </th>
                   {[
                     response['mainProduct']['co2'],
