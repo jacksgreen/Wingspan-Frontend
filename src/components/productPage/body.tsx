@@ -17,6 +17,7 @@ import {
 import { getResponse, getData } from '../../api';
 import './body.css';
 import InfoIcon from '@material-ui/icons/Info';
+import Autocount from './autoCount'
 
 interface Product {
   price: string;
@@ -271,6 +272,7 @@ const Body: React.FC<Props> = props => {
             >
               Search
             </Button>
+            <Autocount/>
           </Form>
         </div>
       )}

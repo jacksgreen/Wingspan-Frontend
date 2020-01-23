@@ -44,7 +44,7 @@ const NavBar: React.FC<Props> = (props) => {
                             <NavLink href="/research/" className="navbar-link" active={window.location.href.includes('research')}>research</NavLink>
                         </NavItem>
                         <NavItem>
-                        <Button color="success"><a href="http://www.google.com" className="whiteText" target="_blank">Download <GetAppIcon/></a></Button>
+                        <Button color="success"><a href="http://www.google.com" className="whiteText" target="_blank">Download<GetAppIcon/></a></Button>
                         </NavItem>
                     </Nav>
                 </Collapse>
