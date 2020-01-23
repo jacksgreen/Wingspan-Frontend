@@ -142,7 +142,7 @@ const Body: React.FC<Props> = props => {
                           </sup>
                           :
                         </b>{' '}
-                        {response['mainProduct']['ecoscore'].toFixed(2)}
+                        {response['mainProduct']['ecoscore']}
                       </span>
                       <Tooltip
                         placement='top'
@@ -155,7 +155,7 @@ const Body: React.FC<Props> = props => {
                     </CardText>
                     <CardText>
                       <b>
-                        CO<sub>2</sub>:{' '}
+                        CO<sup>2</sup>:{' '}
                       </b>
                       {response['mainProduct']['co2']} kgs
                     </CardText>
@@ -163,11 +163,8 @@ const Body: React.FC<Props> = props => {
                       <b>Price: </b> ${response['mainProduct']['price']}
                     </CardText>
                     <CardText>
-                      <b>Price: </b> ${response['mainProduct']['price']}
-                    </CardText>
-                    <CardText>
                       <b>Weight: </b>
-                      {response['mainProduct']['weight'].toFixed(2)} kgs
+                      {response['mainProduct']['weight']} kgs
                     </CardText>
                     <CardText>
                       <b>Composition:</b>{' '}
@@ -261,7 +258,7 @@ const Body: React.FC<Props> = props => {
                     response['secondSuggestion']['ecoscore'],
                     response['thirdSuggestion']['ecoscore']
                   ].map((content, index) => (
-                    <td key={index}>{content.toFixed(2)}</td>
+                    <td key={index}>{content}</td>
                   ))}
                 </tr>
                 <tr>
@@ -302,7 +299,7 @@ const Body: React.FC<Props> = props => {
                     response['secondSuggestion']['weight'],
                     response['thirdSuggestion']['weight']
                   ].map((content, index) => (
-                    <td> {Number(content.toFixed(2))} kgs</td>
+                    <td> {Number(content)} kgs</td>
                   ))}
                 </tr>
                 <tr>
