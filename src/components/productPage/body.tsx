@@ -144,6 +144,7 @@ const Body: React.FC<Props> = props => {
                           </sup>
                           :
                       </b>{' '}
+<<<<<<< HEAD
                         {response['mainProduct']['ecoscore'].toFixed(2)}
                       </span>
                       <Tooltip
@@ -157,6 +158,24 @@ const Body: React.FC<Props> = props => {
                     </CardText>
                     <CardText>
                       <b>CO<sup>2</sup>: </b>{response['mainProduct']['co2']} kgs
+=======
+                      {response['mainProduct']['ecoscore'].toFixed(2)}
+                    </span>
+                    <Tooltip
+                      placement='top'
+                      isOpen={tooltipOpen}
+                      target='Tooltip'
+                      toggle={toggle}
+                    >
+                      {wingspanFormulaDescription}
+                    </Tooltip>
+                  </CardText>
+                  <CardText>
+                    <b>CO<sub>2</sub>: </b>{response['mainProduct']['co2']} kgs
+                  </CardText>
+                  <CardText>
+                    <b>Price: </b> ${response['mainProduct']['price']}
+>>>>>>> afcb43d666389a43f8cd9c6bad5c27d8cc4e65fb
                   </CardText>
                     <CardText>
                       <b>Price: </b> ${response['mainProduct']['price']}
@@ -242,7 +261,7 @@ const Body: React.FC<Props> = props => {
                 </tr>
                 <tr>
                   <th className='rowTable' >
-                    <b>CO<sup>2</sup>: </b>
+                    <b>CO<sub>2</sub>: </b>
                   </th>
                   {[
                     response['mainProduct']['co2'],
