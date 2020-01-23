@@ -177,11 +177,13 @@ const Body: React.FC<Props> = props => {
                     response['secondSuggestion']['photoUrl'],
                     response['thirdSuggestion']['photoUrl']
                   ].map((content, index) => (
-                    <th key={index} className='colTable compare-img'>
-                      <div
-                        className='imgInTable'
-                        style={{ backgroundImage: `url(${content})` }}
-                      ></div>
+                    <th key={index} className='colTable '>
+                      <div className='compare-img'>
+                        <div
+                          className='imgInTable'
+                          style={{ backgroundImage: `url(${content})` }}
+                        ></div>
+                      </div>
                     </th>
                   ))}
                 </tr>

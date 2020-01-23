@@ -15,3 +15,7 @@
 .about-download-icon {
   color: rgb(105, 104, 104);
 }
+
+.card-body {
+  padding: 30px 40px;
+}
