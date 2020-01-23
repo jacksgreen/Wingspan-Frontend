@@ -38,20 +38,19 @@ const NavBar: React.FC<Props> = (props) => {
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto" navbar>
                         <NavItem>
-                            <NavLink href="/about/" className="navbar-link" active={window.location.href.includes('about')}>about</NavLink>
+                            <NavLink href="/about/" className="navbar-link" active={window.location.href.includes('about')}>About</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href="/research/" className="navbar-link" active={window.location.href.includes('research')}>research</NavLink>
+                            <NavLink href="/research/" className="navbar-link" active={window.location.href.includes('research')}>Research</NavLink>
                         </NavItem>
-                        <NavItem>
-                        <Button color="success"><a href="http://www.google.com" className="whiteText" target="_blank">Download<GetAppIcon/></a></Button>
-                        </NavItem>
+                        <Button color="success"><a href="http://www.google.com" className="whiteText-collapse" target="_blank">Download<GetAppIcon /></a></Button>
                     </Nav>
                 </Collapse>
                 <div className="right-side-navbar-container">
                     <NavLink href="/" className="search-link">
                         <SearchIcon onClick={changePage} className="navbar-search" fontSize="inherit" color="inherit" />
                     </NavLink>
+                    <Button color="success"><a href="http://www.google.com" className="whiteText" target="_blank">Download<GetAppIcon /></a></Button>
                     <NavbarBrand className="wingspan-brand-name">WingSpan</NavbarBrand>
                 </div>
             </Navbar>
