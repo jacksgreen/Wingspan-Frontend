@@ -42,7 +42,7 @@ interface Product {
 }
 
 interface Response {
-  msg?: string;
+  message?: string;
   mainProduct?: Product;
   firstSuggestion?: Product;
   secondSuggestion?: Product;
@@ -60,7 +60,7 @@ const Body: React.FC<Props> = props => {
   const toggle = () => setTooltipOpen(!tooltipOpen);
   const wingspanFormulaDescription = 'F(BrandScore,co2)';
   const [response, setResponse] = useState<Response | undefined>({
-    msg: 'Not Loaded'
+    message: 'Not Loaded'
   });
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
@@ -70,7 +70,7 @@ const Body: React.FC<Props> = props => {
       const { showSearchPage } = props;
       if (showSearchPage) {
         let tempResponse = { ...response };
-        tempResponse['msg'] = 'No URL';
+        tempResponse['message'] = 'No URL';
         setResponse(tempResponse);
       }
     });
@@ -101,8 +101,9 @@ const Body: React.FC<Props> = props => {
 
   return (
     <div className='outer-product-wrapper'>
-      {response['msg'] === 'Success' && loaded && (
+      {response['message'] === 'Success' && loaded && (
         <div className='align-items-center bodyContainer'>
+          here
           <div className='d-flex justify-content-center'>
             <Card className='align-items-center p-1 w-50 m-2 main-product-wrapper'>
               <CardBody>
@@ -323,7 +324,7 @@ const Body: React.FC<Props> = props => {
           <Spinner type='grow' color='secondary' />
         </div>
       )}
-      {response['msg'] === 'No URL' && loaded && (
+      {response['message'] !== 'Success' && loaded && (
         <div className='backgroundImg'>
           <Form className='search-form-wrapper'>
             <FormGroup>

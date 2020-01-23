@@ -17,6 +17,7 @@
 .btn-success {
   background: none;
   border-color: #606e60;
+  padding: 0;
 }
 .btn-success:hover {
   background: none;
@@ -83,7 +84,7 @@
     width: 102px;
   }
   .btn-success {
-    width: 0;;
+    width: 0;
     padding: 0;
   }
 }
