@@ -27,7 +27,7 @@ const NavBar: React.FC<Props> = (props) => {
             <Navbar color="success" expand="md" scrolling dark fixed="top">
                 <div className="wingspan-brand-container">
                     <NavbarBrand className="tree"></NavbarBrand>
-                    <NavbarBrand className="wingspan-brand-name-mobile">WingSpan</NavbarBrand>
+                    <NavbarBrand className="wingspan-brand-name">WingSpan</NavbarBrand>
                     <div className="search-container">
                         <NavLink href="/" className="search-link" >
                             <SearchIcon className="navbar-search" fontSize="inherit" color="inherit" />
@@ -51,7 +51,6 @@ const NavBar: React.FC<Props> = (props) => {
                         <SearchIcon onClick={changePage} className="navbar-search" fontSize="inherit" color="inherit" />
                     </NavLink>
                     <Button color="success"><a href="http://www.google.com" className="whiteText" target="_blank">Download<GetAppIcon /></a></Button>
-                    <NavbarBrand className="wingspan-brand-name">WingSpan</NavbarBrand>
                 </div>
             </Navbar>
         </div>
