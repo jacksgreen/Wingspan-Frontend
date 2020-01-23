@@ -15,12 +15,12 @@ import {
   Spinner,
   FormText,
   FormFeedback,
-  UncontrolledCollapse,
+  UncontrolledCollapse
 } from 'reactstrap';
 import { getResponse, getData } from '../../api';
 import './body.css';
 import InfoIcon from '@material-ui/icons/Info';
-import Autocount from './autoCount'
+import Autocount from './autoCount';
 
 interface Product {
   price: string;
@@ -51,7 +51,7 @@ const Body: React.FC<Props> = props => {
   const [isInvalid, setIsInvalid] = useState();
   const [isValid, setIsValid] = useState();
   const toggle = () => setTooltipOpen(!tooltipOpen);
-  const wingspanFormulaDescription = "Enter Formula here"
+  const wingspanFormulaDescription = 'Enter Formula here';
   const [response, setResponse] = useState<Response | undefined>({
     msg: 'Not Loaded'
   });
@@ -70,27 +70,26 @@ const Body: React.FC<Props> = props => {
   }, []);
 
   const [search, setSearch] = useState('');
-  const handleSearch = function (event: React.ChangeEvent<HTMLInputElement>) {
-    if (event.target.value.match('^(https?:\/\/)?(www\.)?(amazon\.)+')) {
+  const handleSearch = function(event: React.ChangeEvent<HTMLInputElement>) {
+    if (event.target.value.match('^(https?://)?(www.)?(amazon.)+')) {
       setSearch(event.target.value);
-      setButtonDisabled(false)
-      setIsInvalid('')
-      setIsValid(true)
+      setButtonDisabled(false);
+      setIsInvalid('');
+      setIsValid(true);
     } else if (event.target.value == '') {
-      setIsInvalid('')
-      setIsValid('')
-      setButtonDisabled(true)
+      setIsInvalid('');
+      setIsValid('');
+      setButtonDisabled(true);
     } else {
-      setButtonDisabled(true)
-      setIsInvalid(true)
-      setIsValid(false)
+      setButtonDisabled(true);
+      setIsInvalid(true);
+      setIsValid(false);
     }
-
   };
 
-  const handleSubmit = async function () {
+  const handleSubmit = async function() {
     const dataU = await getData(search);
-    setResponse(dataU)
+    setResponse(dataU);
   };
 
   return (
@@ -118,9 +117,23 @@ const Body: React.FC<Props> = props => {
                     <b>Type: </b>
                     {response['mainProduct']['type']}
                   </CardText>
-                  <CardText >
-                    <span id="Tooltip"><b>WingSpan Score<sup ><InfoIcon className="superscript" /></sup>:</b> {response['mainProduct']['ecoscore']}</span>
-                    <Tooltip placement="top" isOpen={tooltipOpen} target="Tooltip" toggle={toggle}>
+                  <CardText>
+                    <span id='Tooltip'>
+                      <b>
+                        WingSpan Score
+                        <sup>
+                          <InfoIcon className='superscript' />
+                        </sup>
+                        :
+                      </b>{' '}
+                      {response['mainProduct']['ecoscore']}
+                    </span>
+                    <Tooltip
+                      placement='top'
+                      isOpen={tooltipOpen}
+                      target='Tooltip'
+                      toggle={toggle}
+                    >
                       {wingspanFormulaDescription}
                     </Tooltip>
                   </CardText>
@@ -151,7 +164,7 @@ const Body: React.FC<Props> = props => {
               </CardBody>
             </Card>
           </div>
-          <div>
+          <div className='bottom-product-wrapper'>
             <Table>
               <thead>
                 <tr compare-top-row>
@@ -188,9 +201,23 @@ const Body: React.FC<Props> = props => {
                   ))}
                 </tr>
                 <tr>
-                  <th className='rowTable' >
-                    <span id="Tooltip2"> <b >WingSpan Score<sup ><InfoIcon className="superscript" /></sup>: </b></span>
-                    <Tooltip placement="top" isOpen={tooltipOpen} target="Tooltip2" toggle={toggle}>
+                  <th className='rowTable'>
+                    <span id='Tooltip2'>
+                      {' '}
+                      <b>
+                        WingSpan
+                        <sup>
+                          <InfoIcon className='superscript' />
+                        </sup>
+                        :{' '}
+                      </b>
+                    </span>
+                    <Tooltip
+                      placement='top'
+                      isOpen={tooltipOpen}
+                      target='Tooltip2'
+                      toggle={toggle}
+                    >
                       {wingspanFormulaDescription}
                     </Tooltip>
                   </th>
@@ -255,15 +282,18 @@ const Body: React.FC<Props> = props => {
                   ))}
                 </tr>
                 <tr>
-                  <th className='rowTable'>
-                  </th>
+                  <th className='rowTable'></th>
                   {[
                     response['mainProduct']['url'],
                     response['firstSuggestion']['url'],
                     response['secondSuggestion']['url'],
                     response['thirdSuggestion']['url']
                   ].map((content, index) => (
-                    <td key={index}><a href={content} target="_blank"><b>Buy now</b></a></td>
+                    <td key={index}>
+                      <a href={content} target='_blank'>
+                        <b>Buy now</b>
+                      </a>
+                    </td>
                   ))}
                 </tr>
               </tbody>
@@ -271,7 +301,13 @@ const Body: React.FC<Props> = props => {
           </div>
         </div>
       )}
-      {!loaded && <div><Spinner type="grow" color="secondary" /><Spinner type="grow" color="secondary" /><Spinner type="grow" color="secondary" /></div>}
+      {!loaded && (
+        <div>
+          <Spinner type='grow' color='secondary' />
+          <Spinner type='grow' color='secondary' />
+          <Spinner type='grow' color='secondary' />
+        </div>
+      )}
       {response['msg'] === 'No URL' && loaded && (
         <div className='backgroundImg'>
           <Form className='search-form-wrapper'>
@@ -284,7 +320,7 @@ const Body: React.FC<Props> = props => {
                 placeholder='Enter an Amazon URL...'
                 onChange={event => handleSearch(event)}
                 invalid={isInvalid}
-                autoComplete="off"
+                autoComplete='off'
                 valid={isValid}
               ></Input>
             </FormGroup>
@@ -296,7 +332,7 @@ const Body: React.FC<Props> = props => {
             >
               Search
             </Button>
-              <Autocount />
+            <Autocount />
           </Form>
         </div>
       )}
