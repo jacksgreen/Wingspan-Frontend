@@ -61,7 +61,7 @@ const NavBar: React.FC<Props> = props => {
             </NavItem>
             <Button color='success'>
               <a
-                href='http://www.google.com'
+                href='https://chrome.google.com/webstore/category/extensions'
                 className='whiteText-collapse'
                 target='_blank'
               >
@@ -82,7 +82,7 @@ const NavBar: React.FC<Props> = props => {
           </NavLink>
           <Button color='success'>
             <a
-              href='http://www.google.com'
+              href='https://chrome.google.com/webstore/category/extensions'
               className='whiteText'
               target='_blank'
             >

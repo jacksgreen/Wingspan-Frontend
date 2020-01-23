@@ -109,17 +109,27 @@ th:focus::after {
 .card-title > h3 {
   font-size: 20px;
 }
-
+.box-container {
+  width: 70% !important;
+}
 .product-top-header {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-
+.product-box-left {
+  width: 48%;
+}
+.product-box-right {
+  width: 48%;
+  display: flex;
+  justify-content: center;
+}
 .product-top-body {
   margin-top: 20px;
   margin-left: 20px;
+  display: flex;
 }
 
 .product-description-list {
